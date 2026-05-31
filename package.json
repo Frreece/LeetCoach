@@ -1,0 +1,14 @@
+{
+  "name": "leetcoach",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": ["extension", "website", "infrastructure"],
+  "scripts": {
+    "install:all": "npm install && npm install --prefix extension && npm install --prefix website && npm install --prefix backend && npm install --prefix infrastructure",
+    "dev:website": "npm run dev --prefix website",
+    "build:extension": "npm run build --prefix extension",
+    "build:website": "npm run build --prefix website",
+    "deploy:infra": "npm run cdk deploy --prefix infrastructure -- --all",
+    "deploy:all": "npm run deploy:infra && npm run build:extension && npm run build:website"
+  }
+}

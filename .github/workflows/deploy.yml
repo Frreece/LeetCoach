@@ -1,0 +1,123 @@
+name: Deploy LeetCoach
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+env:
+  AWS_REGION: us-east-1
+  NODE_VERSION: "20"
+
+jobs:
+  # ── Backend / Infrastructure ─────────────────────────────────────────────
+  deploy-infra:
+    name: Deploy AWS Infrastructure
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install infrastructure dependencies
+        run: npm ci --prefix infrastructure
+
+      - name: Install backend dependencies
+        run: npm ci --prefix backend
+
+      - name: CDK Deploy
+        run: |
+          cd infrastructure
+          npx cdk deploy --all --require-approval never \
+            --context ANTHROPIC_API_KEY=${{ secrets.ANTHROPIC_API_KEY }} \
+            --context WEBSITE_URL=${{ secrets.WEBSITE_URL || 'https://leetcoach.app' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          WEBSITE_URL: ${{ secrets.WEBSITE_URL }}
+
+  # ── Website ───────────────────────────────────────────────────────────────
+  deploy-website:
+    name: Build & Deploy Website
+    runs-on: ubuntu-latest
+    needs: deploy-infra
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      - name: Install website dependencies
+        run: npm ci --prefix website
+
+      - name: Build website
+        run: npm run build --prefix website
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+          VITE_USER_POOL_ID: ${{ secrets.VITE_USER_POOL_ID }}
+          VITE_USER_POOL_CLIENT_ID: ${{ secrets.VITE_USER_POOL_CLIENT_ID }}
+          VITE_AWS_REGION: ${{ env.AWS_REGION }}
+
+      # Deploy to S3 + CloudFront (configure S3_BUCKET and CF_DISTRIBUTION_ID secrets)
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Deploy to S3
+        if: env.S3_BUCKET != ''
+        run: aws s3 sync website/dist/ s3://${{ secrets.S3_BUCKET }} --delete --cache-control "public,max-age=31536000,immutable"
+        env:
+          S3_BUCKET: ${{ secrets.S3_BUCKET }}
+
+      - name: Invalidate CloudFront
+        if: env.CF_DISTRIBUTION_ID != ''
+        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.CF_DISTRIBUTION_ID }} --paths "/*"
+        env:
+          CF_DISTRIBUTION_ID: ${{ secrets.CF_DISTRIBUTION_ID }}
+
+  # ── Extension build (for artifact / CWS upload) ───────────────────────────
+  build-extension:
+    name: Build Chrome Extension
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Install extension dependencies
+        run: npm ci --prefix extension
+
+      - name: Build extension
+        run: npm run build --prefix extension
+
+      - name: Upload extension artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: leetcoach-extension
+          path: extension/dist/
+          retention-days: 30

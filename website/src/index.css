@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 antialiased;
+  }
+}
+
+@layer components {
+  /* Card */
+  .card {
+    @apply bg-slate-900 border border-slate-800 rounded-xl p-5;
+  }
+
+  /* Inputs */
+  .input {
+    @apply w-full bg-slate-800 border border-slate-700 rounded-lg px-3.5 py-2.5 text-sm text-slate-100
+           placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent
+           transition-colors;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-brand-600 hover:bg-brand-500 text-white font-medium px-4 py-2.5 rounded-lg
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-secondary {
+    @apply bg-slate-800 hover:bg-slate-700 text-slate-200 font-medium px-4 py-2.5 rounded-lg
+           border border-slate-700 transition-colors;
+  }
+
+  /* Difficulty badges */
+  .badge-easy {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
+           bg-emerald-900/40 text-emerald-400 border border-emerald-800/50;
+  }
+  .badge-medium {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
+           bg-amber-900/40 text-amber-400 border border-amber-800/50;
+  }
+  .badge-hard {
+    @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
+           bg-red-900/40 text-red-400 border border-red-800/50;
+  }
+}
