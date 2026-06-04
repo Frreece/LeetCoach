@@ -93,7 +93,7 @@ window.addEventListener("message", (event) => {
       position: fixed; bottom: 24px; right: 24px; width: 360px; z-index: 999999;
       background: #0f172a; border: 1px solid #1e293b; border-radius: 16px;
       box-shadow: 0 24px 48px rgba(0,0,0,0.6); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      color: #e2e8f0; overflow: hidden; animation: lcSlideIn 0.25s ease-out;
+      color: #e2e8f0; overflow: hidden; animation: lcSlideIn 0.25s ease-out; max-height: 80vh;
     `;
 
     const style = document.createElement("style");
@@ -106,7 +106,9 @@ window.addEventListener("message", (event) => {
       .lc-header { padding:16px 48px 12px 16px; border-bottom:1px solid #1e293b; }
       .lc-brand { font-size:13px; font-weight:700; color:#a78bfa; margin-bottom:4px; }
       .lc-problem { font-size:11px; color:#64748b; }
-      .lc-body { padding:14px 16px; }
+      .lc-body { padding:14px 16px; 
+      overflow-y: auto;
+      max-height: calc(80vh - 60px);}
       .lc-complexity { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:14px; }
       .lc-box { background:#1e293b; border-radius:10px; padding:10px; text-align:center; }
       .lc-box-label { font-size:10px; color:#64748b; margin-bottom:3px; }
