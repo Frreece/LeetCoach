@@ -1,10 +1,9 @@
 # LeetCoach
 
 An AI-powered LeetCode companion that analyzes your solutions in real time, asks Socratic follow-up questions when you can do better, and schedules problems for spaced repetition review so you actually retain what you learn.
+![LeetCoach Dashboard](/assets/Hero.jpg)
 
 Built with a Chrome extension (MV3), a React web dashboard, three AWS Lambda functions, and Claude AI.
-
-![LeetCoach panel showing complexity analysis and follow-up questions](https://placehold.co/800x400/0f172a/a78bfa?text=LeetCoach+%E2%80%94+add+a+screenshot+here)
 
 ---
 
@@ -19,7 +18,13 @@ Built with a Chrome extension (MV3), a React web dashboard, three AWS Lambda fun
 
 ---
 
+## Demo
+
+https://github.com/user-attachments/assets/83011bd1-7edc-476e-b862-f7e7c9db7f18
+
 ## Architecture
+![Extension Workflow](/assets/ExtensionWorkFlow.png)
+![Web App Flow](/assets/WebAppWorkFlow.png)
 
 ```
 Chrome Extension (MV3)
@@ -78,6 +83,7 @@ Results are forwarded via `postMessage` to `content.js`, which passes them to th
 - Relevant algorithm topics
 
 The response is rendered as an overlay panel on the LeetCode page within a few seconds of submission.
+![Submission Panel](assets/SubmissionPanel.png)
 
 ### 3. Spaced Repetition (SM-2)
 
@@ -96,6 +102,8 @@ The `nextReview` date is stored and indexed in a GSI so the review queue can be 
 ### 4. Review Queue
 
 The website's `/review` page fetches all SRS items due today or earlier, presents each problem one at a time, and lets you rate your recall. Ratings update the SM-2 record and push `nextReview` into the future — easy problems come back in weeks, hard ones tomorrow.
+![Review Queue](assets/ReviewQueue.jpg)
+
 
 ---
 
@@ -273,4 +281,4 @@ Then load it in Chrome:
 
 ---
 
-Built by [your name] · [your website or LinkedIn]
+Built by Jaurice · [https://github.com/Frreece]
