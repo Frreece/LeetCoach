@@ -1,7 +1,7 @@
 // backend/shared/db.js
 // DynamoDB single-table helpers + SM-2 SRS implementation
 
-import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { DynamoDBClient, Select } from "@aws-sdk/client-dynamodb";
 import {
   DynamoDBDocumentClient,
   PutCommand,
@@ -80,6 +80,40 @@ export async function upsertProfile(userId, updates) {
       updatedAt: now,
     },
   }));
+}
+
+// ─── Analysis helpers ──────────────────────────────────────────────────────
+
+export async function saveAnalysis(userId) {
+  const now = new Date();
+  const tmr = new Date(now);
+  tmr.setDate(now.getDate() + 1);
+  tmr.setHours(0,0,0,0);
+  const ttl = Math.floor(tmr.getTime() / 1000);
+  await ddb.send(new PutCommand( {
+    TableName: TABLE,
+    Item: {
+      PK: userPK(userId),
+      SK: `ANALYZE#${now.toISOString()}`,
+      ttl,
+      userId
+    },
+  }))
+}
+
+export async function getAnalysisCount(userId) {
+  const res = await ddb.send(new QueryCommand( {
+    TableName: TABLE,
+    KeyConditionExpression: "PK = :pk AND begins_with(SK, :prefix)",
+    ExpressionAttributeValues: {
+      ":pk": userPK(userId),
+      ":prefix": "ANALYZE#"
+    },
+    ScanIndexForward: false,
+    Limit: 3,
+    Select: "COUNT",
+  }))
+  return res.Count;
 }
 
 // ─── Submission helpers ────────────────────────────────────────────────────

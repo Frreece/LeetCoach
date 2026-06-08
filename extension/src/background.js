@@ -70,7 +70,8 @@ async function handleMessage(msg) {
 
     case "SUBMIT_REVIEW":
       return apiPost("/reviews/submit", { problemSlug: msg.problemSlug, quality: msg.quality });
-
+    case "SAVE_SUBMISSION":
+      return apiPost("/submissions/save", msg.payload);
     default:
       throw new Error(`Unknown message type: ${msg.type}`);
   }

@@ -11,6 +11,8 @@ import {
   saveSrsRecord,
   sm2Update,
   optimalityToQuality,
+  getAnalysisCount,
+  saveAnalysis,
 } from "../../shared/db.js";
 
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
@@ -43,6 +45,12 @@ export async function handler(event) {
 
   if (!problemSlug || !code) return err(400, "problemSlug and code are required", event);
 
+  // ── Check Rate Limiter ──────────────────────────────────────────────────────────
+  const analysisCount = await getAnalysisCount(userId).catch(() => 0);
+  if (analysisCount >= 3) {
+    return err(429, "You have already used your analyses for today", event);
+  }
+
   // ── AI Analysis ──────────────────────────────────────────────────────────
   let analysis;
   try {
@@ -52,7 +60,7 @@ export async function handler(event) {
     });
   } catch (e) {
     console.error("Claude analysis failed:", e);
-    return err(502, "AI analysis failed: " + e.message), event;
+    return err(502, "AI analysis failed: " + e.message, event);
   }
 
   // ── SRS Update ───────────────────────────────────────────────────────────
@@ -78,13 +86,15 @@ export async function handler(event) {
     optimalityScore: analysis.optimalityScore,
     topics: analysis.topics,
   }).catch(console.error);
+  
+    // ── Save Analysis ───────────────────────────────────────────────────────
+    await saveAnalysis(userId).catch(console.error);
 
   return ok({
     ...analysis,
     nextReviewDate: newSrs.nextReview,
     srsMessage: srsMessage(newSrs),
-    event
-  });
+  }, event);
 }
 
 // ── Claude prompt ─────────────────────────────────────────────────────────
@@ -129,9 +139,12 @@ Rules:
   });
 
   const text = response.content[0].text.trim();
-  // Strip markdown fences if present
   const json = text.replace(/^```json?\n?/, "").replace(/\n?```$/, "");
-  return JSON.parse(json);
+  try {
+    return JSON.parse(json);
+  } catch {
+    throw new Error("Claude returned malformed JSON: " + text.slice(0, 100));
+  }
 }
 
 function srsMessage(srs) {

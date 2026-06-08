@@ -75,8 +75,8 @@ window.addEventListener("message", (event) => {
     showPanel({ loading: true, accepted, problemSlug: slug });
 
     try {
-      const result = await sendMessage({ type: "ANALYZE_SUBMISSION", payload });
-      showPanel({ ...result, accepted, problemSlug: slug, loading: false });
+      const result = await sendMessage({ type: "SAVE_SUBMISSION", payload });
+      showPanel({ ...result, accepted, problemSlug: slug, loading: false, payload });
     } catch (err) {
       showPanel({ error: err.message, accepted, problemSlug: slug, loading: false });
     }
@@ -134,8 +134,22 @@ window.addEventListener("message", (event) => {
     let bodyHTML = "";
 
     if (data.loading) {
-      bodyHTML = `<div class="lc-spinner"><div class="lc-spin"></div>Analyzing your solution…</div>`;
-    } else if (data.error) {
+      bodyHTML = `<div class="lc-spinner"><div class="lc-spin"></div>Submitting Your Solution…</div>`;
+    } else if (data.saved) {
+      bodyHTML = `<div class="lc-body">
+        <div class="lc-srs">📅 ${escHtml(data.srsMessage || "")}</div>
+        <div style="margin-top:12px;">
+          ${data.remaining > 0
+            ? `<button id="lc-analyze-btn" style="width:100%;padding:10px;background:#7c3aed;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;">
+                ⚡ Analyze Solution (${data.remaining} left today)
+              </button>`
+            : `<div style="text-align:center;font-size:12px;color:#64748b;padding:10px;">
+                No analyses remaining today — resets at midnight
+              </div>`
+          }
+        </div>
+        </div>`;
+    }else if (data.error) {
       bodyHTML = `<div class="lc-body"><div style="color:#f87171;font-size:12px;">Analysis failed: ${escHtml(data.error)}</div></div>`;
     } else {
       const timeColor = complexityColor(data.timeComplexity, data.optimalTimeComplexity);
@@ -207,6 +221,17 @@ window.addEventListener("message", (event) => {
 
     document.body.appendChild(panel);
     panel.querySelector("#lc-close-btn").addEventListener("click", removePanel);
+    if (data.saved && data.remaining > 0) {
+      panel.querySelector("#lc-analyze-btn").addEventListener("click", async () => {
+        showPanel({ loading: true, accepted: data.accepted, problemSlug: data.problemSlug });
+        try {
+          const result = await sendMessage({ type: "ANALYZE_SUBMISSION", payload: data.payload });
+          showPanel({ ...result, accepted: data.accepted, problemSlug: data.problemSlug, loading: false });
+        } catch (e) {
+          showPanel({ error: e.message, accepted: data.accepted, problemSlug: data.problemSlug, loading: false });
+        }
+      });
+    }
 
     // Auto-dismiss after 45s if optimal
     if (data.isOptimal) setTimeout(removePanel, 45000);

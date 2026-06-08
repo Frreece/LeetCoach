@@ -94,12 +94,12 @@ export class LeetCoachStack extends cdk.Stack {
       functionName: "leetcoach-analyze-submission",
       code: lambda.Code.fromAsset(path.join(__dirname, "../../backend"), {
         bundling: {
-  image: lambda.Runtime.NODEJS_22_X.bundlingImage,
-  command: [
-  "bash", "-c",
-  "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
-],
-},
+        image: lambda.Runtime.NODEJS_22_X.bundlingImage,
+        command: [
+        "bash", "-c",
+        "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
+      ],
+      },
       }),
       handler: "lambdas/analyze-submission/index.handler",
       description: "Analyze LeetCode submission with Claude AI + update SRS",
@@ -112,9 +112,9 @@ export class LeetCoachStack extends cdk.Stack {
     bundling: {
       image: lambda.Runtime.NODEJS_22_X.bundlingImage,
       command: [
-  "bash", "-c",
-  "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
-],
+      "bash", "-c",
+      "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
+    ],
     },
   }),
   handler: "lambdas/user-submissions/index.handler",
@@ -128,19 +128,36 @@ const reviewQueueFn = new lambda.Function(this, "ReviewQueue", {
     bundling: {
       image: lambda.Runtime.NODEJS_22_X.bundlingImage,
       command: [
-  "bash", "-c",
-  "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
-],
+      "bash", "-c",
+      "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
+    ],
     },
   }),
   handler: "lambdas/review-queue/index.handler",
   description: "SRS review queue management",
 });
 
+const saveSubmissionFn = new lambda.Function(this, "SaveSubmission", {
+  ...lambdaDefaults,
+  functionName: "leetcoach-save-submission",
+  code: lambda.Code.fromAsset(path.join(__dirname, "../../backend"), { 
+    bundling: {
+      image: lambda.Runtime.NODEJS_22_X.bundlingImage,
+      command: [
+      "bash", "-c",
+      "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
+    ],
+    },
+  }),
+  handler: "lambdas/save-submission/index.handler",
+  description: "Saves submission and updates SRS record without AI analysis",
+});
+
     // Grant DynamoDB access
     table.grantReadWriteData(analyzeSubmissionFn);
     table.grantReadWriteData(submissionsFn);
     table.grantReadWriteData(reviewQueueFn);
+    table.grantReadWriteData(saveSubmissionFn);
 
     // ── API Gateway ───────────────────────────────────────────────────────
     const api = new apigateway.RestApi(this, "LeetCoachApi", {
@@ -175,6 +192,9 @@ const reviewQueueFn = new lambda.Function(this, "ReviewQueue", {
 
     const analyze = submissions.addResource("analyze");
     analyze.addMethod("POST", new apigateway.LambdaIntegration(analyzeSubmissionFn), authOptions);
+
+    const save = submissions.addResource("save");
+    save.addMethod("POST", new apigateway.LambdaIntegration(saveSubmissionFn), authOptions);
 
     const reviews = api.root.addResource("reviews");
     const queue = reviews.addResource("queue");
