@@ -1,0 +1,162 @@
+[
+    {
+    "id": "load-balancer-definition",
+    "category": "Load Balancing & Scaling",
+    "front": "What is a load balancer?",
+    "back": "A component that distributes incoming traffic across multiple servers.",
+    "difficulty": "Easy",
+    "tags": ["load-balancing", "scaling"]
+  },
+  {
+    "id": "round-robin-balancing",
+    "category": "Load Balancing & Scaling",
+    "front": "What is round-robin load balancing?",
+    "back": "Requests are distributed sequentially across available servers.",
+    "difficulty": "Easy",
+    "tags": ["load-balancing", "algorithms"]
+  },
+  {
+    "id": "least-connections-balancing",
+    "category": "Load Balancing & Scaling",
+    "front": "What is least-connections load balancing?",
+    "back": "Traffic is routed to the server with the fewest active connections.",
+    "difficulty": "Easy",
+    "tags": ["load-balancing", "algorithms"]
+  },
+  {
+    "id": "weighted-load-balancing",
+    "category": "Load Balancing & Scaling",
+    "front": "Why use weighted load balancing?",
+    "back": "Servers with greater capacity can receive a larger share of traffic.",
+    "difficulty": "Easy",
+    "tags": ["load-balancing", "capacity"]
+  },
+  {
+    "id": "health-checks",
+    "category": "Load Balancing & Scaling",
+    "front": "Why do load balancers perform health checks?",
+    "back": "To avoid routing requests to unhealthy servers.",
+    "difficulty": "Easy",
+    "tags": ["load-balancing", "availability"]
+  },
+  {
+    "id": "autoscaling",
+    "category": "Load Balancing & Scaling",
+    "front": "What is autoscaling?",
+    "back": "Automatically adding or removing resources based on system demand.",
+    "difficulty": "Easy",
+    "tags": ["autoscaling", "cloud"]
+  },
+  {
+    "id": "horizontal-scaling-review",
+    "category": "Load Balancing & Scaling",
+    "front": "What is horizontal scaling?",
+    "back": "Increasing capacity by adding more machines or instances.",
+    "difficulty": "Easy",
+    "tags": ["scaling", "infrastructure"]
+  },
+  {
+    "id": "vertical-scaling-review",
+    "category": "Load Balancing & Scaling",
+    "front": "What is vertical scaling?",
+    "back": "Increasing capacity by adding more resources to an existing machine.",
+    "difficulty": "Easy",
+    "tags": ["scaling", "infrastructure"]
+  },
+  {
+    "id": "consistent-hashing",
+    "category": "Load Balancing & Scaling",
+    "front": "What is consistent hashing?",
+    "back": "A partitioning technique that minimizes key movement when nodes are added or removed.",
+    "difficulty": "Medium",
+    "tags": ["hashing", "distributed-systems"]
+  },
+  {
+    "id": "virtual-nodes",
+    "category": "Load Balancing & Scaling",
+    "front": "Why are virtual nodes used with consistent hashing?",
+    "back": "They improve load distribution and reduce data skew across servers.",
+    "difficulty": "Medium",
+    "tags": ["hashing", "scaling"]
+  },
+  {
+    "id": "request-routing",
+    "category": "Load Balancing & Scaling",
+    "front": "What is request routing?",
+    "back": "The process of directing incoming requests to appropriate backend services.",
+    "difficulty": "Easy",
+    "tags": ["routing", "load-balancing"]
+  },
+  {
+    "id": "sticky-sessions",
+    "category": "Load Balancing & Scaling",
+    "front": "What are sticky sessions?",
+    "back": "A routing strategy where requests from the same client are sent to the same server.",
+    "difficulty": "Medium",
+    "tags": ["sessions", "load-balancing"]
+  },
+  {
+    "id": "global-load-balancing",
+    "category": "Load Balancing & Scaling",
+    "front": "What is global load balancing?",
+    "back": "Distributing traffic across multiple geographic regions.",
+    "difficulty": "Medium",
+    "tags": ["load-balancing", "multi-region"]
+  },
+  {
+    "id": "traffic-shifting",
+    "category": "Load Balancing & Scaling",
+    "front": "What is traffic shifting?",
+    "back": "Gradually moving traffic from one service version or deployment to another.",
+    "difficulty": "Medium",
+    "tags": ["deployments", "scaling"]
+  },
+  {
+    "id": "canary-deployment",
+    "category": "Load Balancing & Scaling",
+    "front": "What is a canary deployment?",
+    "back": "A release strategy where a small percentage of users receive a new version before wider rollout.",
+    "difficulty": "Medium",
+    "tags": ["deployments", "reliability"]
+  },
+  {
+    "id": "blue-green-deployment",
+    "category": "Load Balancing & Scaling",
+    "front": "What is a blue-green deployment?",
+    "back": "A deployment strategy using two identical environments to enable low-risk releases.",
+    "difficulty": "Medium",
+    "tags": ["deployments", "operations"]
+  },
+  {
+    "id": "rate-limiting",
+    "category": "Load Balancing & Scaling",
+    "front": "Why is rate limiting used?",
+    "back": "To protect systems from abuse and excessive traffic.",
+    "difficulty": "Medium",
+    "tags": ["rate-limiting", "scaling"]
+  },
+  {
+    "id": "token-bucket-algorithm",
+    "category": "Load Balancing & Scaling",
+    "front": "How does the token bucket algorithm work?",
+    "back": "Requests consume tokens from a bucket that refills at a fixed rate, allowing controlled bursts.",
+    "difficulty": "Hard",
+    "tags": ["rate-limiting", "algorithms"]
+  },
+  {
+    "id": "leaky-bucket-algorithm",
+    "category": "Load Balancing & Scaling",
+    "front": "How does the leaky bucket algorithm work?",
+    "back": "Requests enter a queue and are processed at a constant rate, smoothing traffic spikes.",
+    "difficulty": "Hard",
+    "tags": ["rate-limiting", "algorithms"]
+  },
+  {
+    "id": "load-shedding",
+    "category": "Load Balancing & Scaling",
+    "front": "What is load shedding?",
+    "back": "The intentional rejection of excess traffic to preserve system stability.",
+    "difficulty": "Hard",
+    "tags": ["reliability", "scaling"]
+  }
+]

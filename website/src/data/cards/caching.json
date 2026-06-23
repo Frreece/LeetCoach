@@ -1,0 +1,162 @@
+[
+    {
+    "id": "cache-definition",
+    "category": "Caching",
+    "front": "What is a cache?",
+    "back": "A storage layer that keeps frequently accessed data in faster storage for quicker retrieval.",
+    "difficulty": "Easy",
+    "tags": ["cache", "performance"]
+  },
+  {
+    "id": "cache-hit",
+    "category": "Caching",
+    "front": "What is a cache hit?",
+    "back": "A request that finds the desired data in the cache.",
+    "difficulty": "Easy",
+    "tags": ["cache", "metrics"]
+  },
+  {
+    "id": "cache-miss",
+    "category": "Caching",
+    "front": "What is a cache miss?",
+    "back": "A request where the requested data is not found in cache and must be fetched elsewhere.",
+    "difficulty": "Easy",
+    "tags": ["cache", "metrics"]
+  },
+  {
+    "id": "cache-hit-ratio",
+    "category": "Caching",
+    "front": "What is cache hit ratio?",
+    "back": "The percentage of requests served directly from cache.",
+    "difficulty": "Easy",
+    "tags": ["cache", "metrics"]
+  },
+  {
+    "id": "ttl-cache",
+    "category": "Caching",
+    "front": "What is TTL in caching?",
+    "back": "Time To Live specifies how long a cache entry remains valid before expiring.",
+    "difficulty": "Easy",
+    "tags": ["cache", "ttl"]
+  },
+  {
+    "id": "cache-eviction",
+    "category": "Caching",
+    "front": "What is cache eviction?",
+    "back": "The process of removing entries from cache when space is needed.",
+    "difficulty": "Easy",
+    "tags": ["cache", "storage"]
+  },
+  {
+    "id": "lru-cache",
+    "category": "Caching",
+    "front": "What is the LRU eviction policy?",
+    "back": "Least Recently Used removes the item that has not been accessed for the longest time.",
+    "difficulty": "Easy",
+    "tags": ["lru", "cache"]
+  },
+  {
+    "id": "lfu-cache",
+    "category": "Caching",
+    "front": "What is the LFU eviction policy?",
+    "back": "Least Frequently Used removes items with the lowest access frequency.",
+    "difficulty": "Medium",
+    "tags": ["lfu", "cache"]
+  },
+  {
+    "id": "write-back-cache",
+    "category": "Caching",
+    "front": "What is write-back caching?",
+    "back": "Writes are stored in cache first and flushed to persistent storage later.",
+    "difficulty": "Medium",
+    "tags": ["cache", "writes"]
+  },
+  {
+    "id": "cache-invalidation",
+    "category": "Caching",
+    "front": "Why is cache invalidation difficult?",
+    "back": "Cached data can become stale, requiring careful coordination with underlying storage.",
+    "difficulty": "Medium",
+    "tags": ["cache", "consistency"]
+  },
+  {
+    "id": "cache-stampede",
+    "category": "Caching",
+    "front": "What is a cache stampede?",
+    "back": "Many requests simultaneously miss cache and overwhelm the backend system.",
+    "difficulty": "Medium",
+    "tags": ["cache", "scaling"]
+  },
+  {
+    "id": "cache-warming",
+    "category": "Caching",
+    "front": "What is cache warming?",
+    "back": "Preloading frequently accessed data into cache before traffic arrives.",
+    "difficulty": "Medium",
+    "tags": ["cache", "optimization"]
+  },
+  {
+    "id": "distributed-cache",
+    "category": "Caching",
+    "front": "What is a distributed cache?",
+    "back": "A cache spread across multiple machines to increase capacity and availability.",
+    "difficulty": "Medium",
+    "tags": ["cache", "distributed-systems"]
+  },
+  {
+    "id": "cache-consistency",
+    "category": "Caching",
+    "front": "What is cache consistency?",
+    "back": "The degree to which cached data matches the authoritative source of truth.",
+    "difficulty": "Hard",
+    "tags": ["cache", "consistency"]
+  },
+  {
+    "id": "cache-poisoning",
+    "category": "Caching",
+    "front": "What is cache poisoning?",
+    "back": "The insertion of malicious or incorrect content into a cache.",
+    "difficulty": "Hard",
+    "tags": ["cache", "security"]
+  },
+  {
+    "id": "cache-sharding",
+    "category": "Caching",
+    "front": "Why is cache sharding used?",
+    "back": "Cache sharding distributes keys across multiple cache nodes to increase capacity and throughput.",
+    "difficulty": "Medium",
+    "tags": ["cache", "sharding"]
+  },
+  {
+    "id": "read-through-cache",
+    "category": "Caching",
+    "front": "What is a read-through cache?",
+    "back": "A cache that automatically loads missing data from the backing store when a cache miss occurs.",
+    "difficulty": "Easy",
+    "tags": ["cache", "read-through"]
+  },
+  {
+    "id": "refresh-ahead-cache",
+    "category": "Caching",
+    "front": "What is refresh-ahead caching?",
+    "back": "A strategy where cache entries are proactively refreshed before they expire.",
+    "difficulty": "Medium",
+    "tags": ["cache", "performance"]
+  },
+  {
+    "id": "near-cache",
+    "category": "Caching",
+    "front": "What is a near cache?",
+    "back": "A local cache located close to the application that reduces access latency to frequently used data.",
+    "difficulty": "Medium",
+    "tags": ["cache", "latency"]
+  },
+  {
+    "id": "cache-coherency",
+    "category": "Caching",
+    "front": "What is cache coherency?",
+    "back": "The guarantee that multiple caches maintain a consistent view of shared data.",
+    "difficulty": "Hard",
+    "tags": ["cache", "consistency"]
+  }
+]

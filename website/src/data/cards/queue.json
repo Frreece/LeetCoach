@@ -1,0 +1,162 @@
+[
+    {
+    "id": "message-queue-definition",
+    "category": "Messaging & Queues",
+    "front": "What is a message queue?",
+    "back": "A system that stores messages until consumers process them asynchronously.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "queues"]
+  },
+  {
+    "id": "producer-consumer-pattern",
+    "category": "Messaging & Queues",
+    "front": "What is the producer-consumer pattern?",
+    "back": "Producers create messages while consumers process them independently.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "patterns"]
+  },
+  {
+    "id": "message-broker",
+    "category": "Messaging & Queues",
+    "front": "What is a message broker?",
+    "back": "Software that routes, stores, and delivers messages between producers and consumers.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "broker"]
+  },
+  {
+    "id": "asynchronous-processing",
+    "category": "Messaging & Queues",
+    "front": "Why use asynchronous processing?",
+    "back": "It decouples components and improves responsiveness under load.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "scalability"]
+  },
+  {
+    "id": "message-topic",
+    "category": "Messaging & Queues",
+    "front": "What is a topic in a messaging system?",
+    "back": "A named channel to which messages are published and from which subscribers consume.",
+    "difficulty": "Easy",
+    "tags": ["pubsub", "messaging"]
+  },
+  {
+    "id": "message-partition",
+    "category": "Messaging & Queues",
+    "front": "What is a partition in a distributed log?",
+    "back": "An ordered subset of messages that enables parallelism and scalability.",
+    "difficulty": "Medium",
+    "tags": ["kafka", "partitioning"]
+  },
+  {
+    "id": "consumer-group",
+    "category": "Messaging & Queues",
+    "front": "What is a consumer group?",
+    "back": "A set of consumers that share the work of processing messages from a topic.",
+    "difficulty": "Medium",
+    "tags": ["kafka", "consumers"]
+  },
+  {
+    "id": "message-offset",
+    "category": "Messaging & Queues",
+    "front": "What is an offset in a log-based messaging system?",
+    "back": "A position that identifies a specific message within a partition.",
+    "difficulty": "Medium",
+    "tags": ["kafka", "messaging"]
+  },
+  {
+    "id": "message-retention",
+    "category": "Messaging & Queues",
+    "front": "What is message retention?",
+    "back": "The policy that determines how long messages are stored before deletion.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "storage"]
+  },
+  {
+    "id": "dead-letter-queue",
+    "category": "Messaging & Queues",
+    "front": "What is a Dead Letter Queue (DLQ)?",
+    "back": "A queue that stores messages that repeatedly fail processing.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "reliability"]
+  },
+  {
+    "id": "at-most-once-delivery",
+    "category": "Messaging & Queues",
+    "front": "What is at-most-once message delivery?",
+    "back": "Messages may be lost, but they are never delivered more than once.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "delivery-guarantees"]
+  },
+  {
+    "id": "at-least-once-delivery",
+    "category": "Messaging & Queues",
+    "front": "What is at-least-once message delivery?",
+    "back": "Messages are guaranteed to be delivered, but duplicates may occur.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "delivery-guarantees"]
+  },
+  {
+    "id": "exactly-once-delivery",
+    "category": "Messaging & Queues",
+    "front": "Why is exactly-once delivery difficult?",
+    "back": "Network failures, retries, and distributed coordination make it challenging to guarantee a single processing outcome.",
+    "difficulty": "Hard",
+    "tags": ["messaging", "distributed-systems"]
+  },
+  {
+    "id": "idempotent-consumer",
+    "category": "Messaging & Queues",
+    "front": "What is an idempotent consumer?",
+    "back": "A consumer that can safely process the same message multiple times without changing the final result.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "reliability"]
+  },
+  {
+    "id": "message-ordering",
+    "category": "Messaging & Queues",
+    "front": "Why is message ordering important?",
+    "back": "Some applications require events to be processed in the same sequence they were produced.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "ordering"]
+  },
+  {
+    "id": "event-streaming",
+    "category": "Messaging & Queues",
+    "front": "What is event streaming?",
+    "back": "A model where events are continuously appended to logs and consumed in real time.",
+    "difficulty": "Medium",
+    "tags": ["streaming", "events"]
+  },
+  {
+    "id": "backpressure",
+    "category": "Messaging & Queues",
+    "front": "What is backpressure?",
+    "back": "A mechanism that prevents producers from overwhelming slower consumers.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "flow-control"]
+  },
+  {
+    "id": "message-deduplication",
+    "category": "Messaging & Queues",
+    "front": "What is message deduplication?",
+    "back": "The process of identifying and removing duplicate messages.",
+    "difficulty": "Medium",
+    "tags": ["messaging", "reliability"]
+  },
+  {
+    "id": "outbox-pattern",
+    "category": "Messaging & Queues",
+    "front": "What is the transactional outbox pattern?",
+    "back": "A pattern that stores events in a database table as part of a transaction before publishing them.",
+    "difficulty": "Hard",
+    "tags": ["messaging", "transactions"]
+  },
+  {
+    "id": "event-sourcing",
+    "category": "Messaging & Queues",
+    "front": "What is event sourcing?",
+    "back": "A design approach where system state is derived from a sequence of stored events.",
+    "difficulty": "Hard",
+    "tags": ["events", "architecture"]
+  }
+]

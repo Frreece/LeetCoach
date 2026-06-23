@@ -1,0 +1,202 @@
+[
+  {
+    "id": "cap-theorem",
+    "category": "Fundamentals",
+    "front": "What is the CAP theorem?",
+    "back": "A distributed system can only guarantee two of: Consistency, Availability, and Partition Tolerance simultaneously.",
+    "difficulty": "Easy",
+    "tags": ["distributed-systems", "fundamentals"]
+  },
+  {
+    "id": "latency-vs-throughput",
+    "category": "Fundamentals",
+    "front": "What is the difference between latency and throughput?",
+    "back": "Latency measures the time for a single request to complete. Throughput measures how many requests can be processed per unit of time.",
+    "difficulty": "Easy",
+    "tags": ["performance", "fundamentals"]
+  },
+  {
+    "id": "horizontal-vs-vertical-scaling",
+    "category": "Fundamentals",
+    "front": "What is the difference between horizontal and vertical scaling?",
+    "back": "Horizontal scaling adds more machines. Vertical scaling increases resources on an existing machine.",
+    "difficulty": "Easy",
+    "tags": ["scaling", "fundamentals"]
+  },
+  {
+    "id": "availability-definition",
+    "category": "Fundamentals",
+    "front": "What is availability in a distributed system?",
+    "back": "Availability is the percentage of requests that receive a successful response within a reasonable time.",
+    "difficulty": "Easy",
+    "tags": ["availability", "fundamentals"]
+  },
+  {
+    "id": "single-point-of-failure",
+    "category": "Fundamentals",
+    "front": "What is a single point of failure (SPOF)?",
+    "back": "A component whose failure causes the entire system to become unavailable.",
+    "difficulty": "Easy",
+    "tags": ["reliability", "fundamentals"]
+  },
+  {
+    "id": "stateful-vs-stateless",
+    "category": "Fundamentals",
+    "front": "What is the difference between stateful and stateless services?",
+    "back": "Stateful services store client session information locally. Stateless services keep no client-specific state between requests.",
+    "difficulty": "Easy",
+    "tags": ["services", "fundamentals"]
+  },
+  {
+    "id": "service-level-agreement",
+    "category": "Fundamentals",
+    "front": "What is an SLA?",
+    "back": "A Service Level Agreement defines the expected level of service, such as uptime guarantees and response times.",
+    "difficulty": "Easy",
+    "tags": ["sla", "operations"]
+  },
+  {
+    "id": "service-level-objective",
+    "category": "Fundamentals",
+    "front": "What is an SLO?",
+    "back": "A Service Level Objective is a measurable reliability target such as 99.9% availability.",
+    "difficulty": "Medium",
+    "tags": ["slo", "reliability"]
+  },
+  {
+    "id": "service-level-indicator",
+    "category": "Fundamentals",
+    "front": "What is an SLI?",
+    "back": "A Service Level Indicator is a metric used to measure system performance against an SLO.",
+    "difficulty": "Medium",
+    "tags": ["sli", "reliability"]
+  },
+  {
+    "id": "read-heavy-vs-write-heavy",
+    "category": "Fundamentals",
+    "front": "Why does it matter whether a workload is read-heavy or write-heavy?",
+    "back": "System design decisions such as caching, indexing, replication, and storage strategies depend heavily on read/write ratios.",
+    "difficulty": "Medium",
+    "tags": ["workloads", "performance"]
+  },
+  {
+    "id": "bottleneck-identification",
+    "category": "Fundamentals",
+    "front": "What is a bottleneck in a system?",
+    "back": "The component that limits overall system performance or scalability.",
+    "difficulty": "Easy",
+    "tags": ["performance", "optimization"]
+  },
+  {
+    "id": "resource-utilization",
+    "category": "Fundamentals",
+    "front": "What is resource utilization?",
+    "back": "The percentage of CPU, memory, disk, or network capacity currently being used.",
+    "difficulty": "Easy",
+    "tags": ["monitoring", "resources"]
+  },
+  {
+    "id": "back-of-the-envelope-estimation",
+    "category": "Fundamentals",
+    "front": "Why are back-of-the-envelope calculations important in system design?",
+    "back": "They help estimate traffic, storage, bandwidth, and scaling requirements before implementation.",
+    "difficulty": "Medium",
+    "tags": ["estimation", "capacity-planning"]
+  },
+  {
+    "id": "request-lifecycle",
+    "category": "Fundamentals",
+    "front": "What is the request lifecycle in a web application?",
+    "back": "The path a request follows from client to load balancer, application servers, databases, and back to the client.",
+    "difficulty": "Medium",
+    "tags": ["web", "architecture"]
+  },
+  {
+    "id": "tradeoffs-in-system-design",
+    "category": "Fundamentals",
+    "front": "Why are tradeoffs unavoidable in system design?",
+    "back": "Optimizing one property such as consistency, latency, or cost often requires sacrificing another.",
+    "difficulty": "Medium",
+    "tags": ["tradeoffs", "architecture"]
+  },
+  {
+    "id": "eventual-consistency-overview",
+    "category": "Fundamentals",
+    "front": "What is eventual consistency?",
+    "back": "A consistency model where replicas may temporarily diverge but eventually converge to the same state.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "strong-consistency-overview",
+    "category": "Fundamentals",
+    "front": "What is strong consistency?",
+    "back": "All clients see the most recent successful write regardless of which replica they access.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "system-requirements-gathering",
+    "category": "Fundamentals",
+    "front": "What is the first step in a system design interview?",
+    "back": "Clarify functional and non-functional requirements before proposing an architecture.",
+    "difficulty": "Easy",
+    "tags": ["interviews", "requirements"]
+  },
+  {
+    "id": "functional-requirements",
+    "category": "Fundamentals",
+    "front": "What are functional requirements?",
+    "back": "Features and behaviors the system must provide to users.",
+    "difficulty": "Easy",
+    "tags": ["requirements", "architecture"]
+  },
+  {
+    "id": "non-functional-requirements",
+    "category": "Fundamentals",
+    "front": "What are non-functional requirements?",
+    "back": "System qualities such as scalability, reliability, latency, security, and maintainability.",
+    "difficulty": "Easy",
+    "tags": ["requirements", "architecture"]
+  },
+  {
+    "id": "capacity-planning",
+    "category": "Fundamentals",
+    "front": "What is capacity planning?",
+    "back": "Forecasting future resource needs based on expected growth and usage patterns.",
+    "difficulty": "Medium",
+    "tags": ["capacity-planning", "scaling"]
+  },
+  {
+    "id": "tail-latency",
+    "category": "Fundamentals",
+    "front": "What is tail latency?",
+    "back": "The latency experienced by the slowest requests, often measured at the 95th or 99th percentile.",
+    "difficulty": "Hard",
+    "tags": ["latency", "performance"]
+  },
+  {
+    "id": "little-law",
+    "category": "Fundamentals",
+    "front": "What does Little's Law state?",
+    "back": "The average number of items in a system equals arrival rate multiplied by average time spent in the system.",
+    "difficulty": "Hard",
+    "tags": ["queueing", "performance"]
+  },
+  {
+    "id": "availability-calculation",
+    "category": "Fundamentals",
+    "front": "What does 99.99% availability mean annually?",
+    "back": "Roughly 52.6 minutes of downtime per year.",
+    "difficulty": "Hard",
+    "tags": ["availability", "reliability"]
+  },
+  {
+    "id": "performance-vs-scalability",
+    "category": "Fundamentals",
+    "front": "What is the difference between performance and scalability?",
+    "back": "Performance measures current efficiency, while scalability measures how well the system handles increased load.",
+    "difficulty": "Medium",
+    "tags": ["performance", "scalability"]
+  }
+]

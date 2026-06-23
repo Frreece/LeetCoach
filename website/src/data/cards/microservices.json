@@ -1,0 +1,122 @@
+[
+    {
+    "id": "microservices-definition",
+    "category": "Microservices",
+    "front": "What are microservices?",
+    "back": "An architectural style where applications are built from small, independently deployable services.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "architecture"]
+  },
+  {
+    "id": "monolith-vs-microservices",
+    "category": "Microservices",
+    "front": "What is the primary difference between a monolith and microservices?",
+    "back": "A monolith is deployed as a single unit, while microservices are deployed independently.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "architecture"]
+  },
+  {
+    "id": "service-boundary",
+    "category": "Microservices",
+    "front": "What is a service boundary?",
+    "back": "The clear ownership and responsibility limits that define what a microservice manages.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "design"]
+  },
+  {
+    "id": "service-discovery",
+    "category": "Microservices",
+    "front": "What is service discovery?",
+    "back": "The mechanism that allows services to locate and communicate with one another dynamically.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "networking"]
+  },
+  {
+    "id": "service-registry",
+    "category": "Microservices",
+    "front": "What is a service registry?",
+    "back": "A directory that tracks available service instances and their locations.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "service-discovery"]
+  },
+  {
+    "id": "synchronous-service-communication",
+    "category": "Microservices",
+    "front": "What is synchronous communication between microservices?",
+    "back": "A communication style where the caller waits for a direct response from another service.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "communication"]
+  },
+  {
+    "id": "asynchronous-service-communication",
+    "category": "Microservices",
+    "front": "What is asynchronous communication between microservices?",
+    "back": "A communication style where services exchange messages or events without blocking for immediate responses.",
+    "difficulty": "Easy",
+    "tags": ["microservices", "messaging"]
+  },
+  {
+    "id": "service-mesh",
+    "category": "Microservices",
+    "front": "What is a service mesh?",
+    "back": "An infrastructure layer that manages service-to-service communication, security, and observability.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "networking"]
+  },
+  {
+    "id": "distributed-tracing-microservices",
+    "category": "Microservices",
+    "front": "Why is distributed tracing important in microservices?",
+    "back": "It helps track requests across multiple services and identify latency or failure points.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "observability"]
+  },
+  {
+    "id": "shared-database-anti-pattern",
+    "category": "Microservices",
+    "front": "Why is a shared database often considered an anti-pattern in microservices?",
+    "back": "It tightly couples services and makes independent deployment and scaling more difficult.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "databases"]
+  },
+  {
+    "id": "api-composition",
+    "category": "Microservices",
+    "front": "What is API composition?",
+    "back": "Combining data from multiple services into a single response for clients.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "api"]
+  },
+  {
+    "id": "database-per-service-review",
+    "category": "Microservices",
+    "front": "Why is the database-per-service pattern popular in microservices?",
+    "back": "It allows each service to evolve, scale, and manage data independently.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "databases"]
+  },
+  {
+    "id": "chatty-microservices",
+    "category": "Microservices",
+    "front": "What is a chatty microservices architecture?",
+    "back": "An architecture where services make excessive network calls to one another, increasing latency and complexity.",
+    "difficulty": "Hard",
+    "tags": ["microservices", "performance"]
+  },
+  {
+    "id": "distributed-monolith",
+    "category": "Microservices",
+    "front": "What is a distributed monolith?",
+    "back": "A system that uses multiple services but remains tightly coupled, losing many benefits of microservices.",
+    "difficulty": "Hard",
+    "tags": ["microservices", "architecture"]
+  },
+  {
+    "id": "cross-service-transaction",
+    "category": "Microservices",
+    "front": "Why are cross-service transactions difficult?",
+    "back": "They require coordination across independently managed services and often sacrifice simplicity or availability.",
+    "difficulty": "Hard",
+    "tags": ["microservices", "distributed-systems"]
+  }
+]

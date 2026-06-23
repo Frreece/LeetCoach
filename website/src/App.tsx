@@ -7,6 +7,7 @@ import DashboardPage from "./pages/DashboardPage";
 import ReviewPage from "./pages/ReviewPage";
 import HistoryPage from "./pages/HistoryPage";
 import Layout from "./components/Layout";
+import PrivacyPage from "./pages/PrivacyPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
+      <Route path="/privacy" element = {<PrivacyPage/>} />
       <Route path="/login"  element={user ? <Navigate to="/dashboard" replace /> : <AuthPage mode="signin" />} />
       <Route path="/signup" element={user ? <Navigate to="/dashboard" replace /> : <AuthPage mode="signup" />} />
       <Route path="/dashboard" element={<ProtectedRoute><Layout><DashboardPage /></Layout></ProtectedRoute>} />

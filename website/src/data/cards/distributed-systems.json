@@ -1,0 +1,82 @@
+[
+    {
+    "id": "consensus-definition",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is consensus in a distributed system?",
+    "back": "The process by which multiple nodes agree on a single value or sequence of operations.",
+    "difficulty": "Easy",
+    "tags": ["consensus", "distributed-systems"]
+  },
+  {
+    "id": "raft-overview",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is Raft?",
+    "back": "A consensus algorithm designed to be understandable while providing replicated state machine guarantees.",
+    "difficulty": "Medium",
+    "tags": ["raft", "consensus"]
+  },
+  {
+    "id": "paxos-overview",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is Paxos?",
+    "back": "A family of consensus algorithms used to achieve agreement in unreliable distributed environments.",
+    "difficulty": "Hard",
+    "tags": ["paxos", "consensus"]
+  },
+  {
+    "id": "leader-election",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is leader election?",
+    "back": "The process of selecting a single node to coordinate activities within a distributed system.",
+    "difficulty": "Easy",
+    "tags": ["leadership", "consensus"]
+  },
+  {
+    "id": "distributed-lock",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is a distributed lock?",
+    "back": "A synchronization mechanism that ensures only one node performs a critical operation at a time.",
+    "difficulty": "Medium",
+    "tags": ["locking", "distributed-systems"]
+  },
+  {
+    "id": "distributed-transaction",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is a distributed transaction?",
+    "back": "A transaction that spans multiple services, databases, or nodes.",
+    "difficulty": "Medium",
+    "tags": ["transactions", "distributed-systems"]
+  },
+  {
+    "id": "two-phase-commit",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is Two-Phase Commit (2PC)?",
+    "back": "A protocol that coordinates distributed transactions through prepare and commit phases.",
+    "difficulty": "Medium",
+    "tags": ["2pc", "transactions"]
+  },
+  {
+    "id": "three-phase-commit",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is Three-Phase Commit (3PC)?",
+    "back": "An extension of 2PC designed to reduce blocking under certain failure scenarios.",
+    "difficulty": "Hard",
+    "tags": ["3pc", "transactions"]
+  },
+  {
+    "id": "distributed-state-machine",
+    "category": "Consensus & Distributed Systems",
+    "front": "What is a replicated state machine?",
+    "back": "Multiple nodes execute the same ordered commands to maintain identical state.",
+    "difficulty": "Medium",
+    "tags": ["consensus", "replication"]
+  },
+  {
+    "id": "flp-impossibility",
+    "category": "Consensus & Distributed Systems",
+    "front": "What does the FLP impossibility result state?",
+    "back": "In an asynchronous distributed system, deterministic consensus cannot be guaranteed if even one process may fail.",
+    "difficulty": "Hard",
+    "tags": ["consensus", "theory"]
+  }
+]

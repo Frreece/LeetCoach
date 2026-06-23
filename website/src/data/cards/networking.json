@@ -1,0 +1,162 @@
+[
+    {
+    "id": "http-overview",
+    "category": "Networking",
+    "front": "What is HTTP?",
+    "back": "A stateless application-layer protocol used for communication between clients and servers.",
+    "difficulty": "Easy",
+    "tags": ["http", "networking"]
+  },
+  {
+    "id": "https-overview",
+    "category": "Networking",
+    "front": "What is HTTPS?",
+    "back": "HTTP secured using TLS encryption to protect data in transit.",
+    "difficulty": "Easy",
+    "tags": ["https", "security"]
+  },
+  {
+    "id": "tcp-vs-udp",
+    "category": "Networking",
+    "front": "What is the difference between TCP and UDP?",
+    "back": "TCP provides reliable ordered delivery, while UDP prioritizes speed and lower overhead.",
+    "difficulty": "Easy",
+    "tags": ["tcp", "udp"]
+  },
+  {
+    "id": "dns-purpose",
+    "category": "Networking",
+    "front": "What is DNS used for?",
+    "back": "DNS translates human-readable domain names into IP addresses.",
+    "difficulty": "Easy",
+    "tags": ["dns", "networking"]
+  },
+  {
+    "id": "cdn-definition",
+    "category": "Networking",
+    "front": "What is a CDN?",
+    "back": "A Content Delivery Network caches content closer to users to reduce latency and origin load.",
+    "difficulty": "Easy",
+    "tags": ["cdn", "performance"]
+  },
+  {
+    "id": "tls-handshake",
+    "category": "Networking",
+    "front": "What happens during a TLS handshake?",
+    "back": "The client and server authenticate and establish encryption keys for secure communication.",
+    "difficulty": "Medium",
+    "tags": ["tls", "security"]
+  },
+  {
+    "id": "ip-address-purpose",
+    "category": "Networking",
+    "front": "What is an IP address?",
+    "back": "A unique identifier used to route traffic between devices on a network.",
+    "difficulty": "Easy",
+    "tags": ["ip", "networking"]
+  },
+  {
+    "id": "ipv4-vs-ipv6",
+    "category": "Networking",
+    "front": "Why was IPv6 introduced?",
+    "back": "IPv6 provides a vastly larger address space than IPv4 and simplifies certain networking operations.",
+    "difficulty": "Medium",
+    "tags": ["ipv6", "networking"]
+  },
+  {
+    "id": "network-latency-sources",
+    "category": "Networking",
+    "front": "What are common sources of network latency?",
+    "back": "Propagation delays, routing hops, congestion, and packet processing overhead.",
+    "difficulty": "Medium",
+    "tags": ["latency", "networking"]
+  },
+  {
+    "id": "websocket-purpose",
+    "category": "Networking",
+    "front": "What problem do WebSockets solve?",
+    "back": "They provide persistent bidirectional communication between clients and servers.",
+    "difficulty": "Easy",
+    "tags": ["websockets", "realtime"]
+  },
+  {
+    "id": "long-polling",
+    "category": "Networking",
+    "front": "What is long polling?",
+    "back": "A technique where a client keeps an HTTP request open until new data becomes available.",
+    "difficulty": "Medium",
+    "tags": ["realtime", "http"]
+  },
+  {
+    "id": "http2-benefits",
+    "category": "Networking",
+    "front": "What are key advantages of HTTP/2?",
+    "back": "Multiplexing, header compression, and reduced connection overhead.",
+    "difficulty": "Medium",
+    "tags": ["http2", "performance"]
+  },
+  {
+    "id": "http3-overview",
+    "category": "Networking",
+    "front": "What is HTTP/3?",
+    "back": "A version of HTTP built on QUIC, improving connection establishment and resilience.",
+    "difficulty": "Medium",
+    "tags": ["http3", "quic"]
+  },
+  {
+    "id": "quic-protocol",
+    "category": "Networking",
+    "front": "What is QUIC?",
+    "back": "A transport protocol built on UDP that provides low-latency secure communication.",
+    "difficulty": "Hard",
+    "tags": ["quic", "transport"]
+  },
+  {
+    "id": "reverse-proxy",
+    "category": "Networking",
+    "front": "What is a reverse proxy?",
+    "back": "A server that receives client requests and forwards them to backend servers.",
+    "difficulty": "Easy",
+    "tags": ["proxy", "networking"]
+  },
+  {
+    "id": "forward-proxy",
+    "category": "Networking",
+    "front": "What is a forward proxy?",
+    "back": "A proxy that acts on behalf of clients when accessing external services.",
+    "difficulty": "Easy",
+    "tags": ["proxy", "networking"]
+  },
+  {
+    "id": "connection-pooling",
+    "category": "Networking",
+    "front": "Why is connection pooling useful?",
+    "back": "It reuses existing connections, reducing connection setup overhead.",
+    "difficulty": "Medium",
+    "tags": ["connections", "performance"]
+  },
+  {
+    "id": "network-partition",
+    "category": "Networking",
+    "front": "What is a network partition?",
+    "back": "A failure where nodes cannot communicate with each other despite remaining operational.",
+    "difficulty": "Medium",
+    "tags": ["distributed-systems", "networking"]
+  },
+  {
+    "id": "head-of-line-blocking",
+    "category": "Networking",
+    "front": "What is head-of-line blocking?",
+    "back": "A situation where one delayed packet or request prevents subsequent requests from being processed.",
+    "difficulty": "Hard",
+    "tags": ["performance", "networking"]
+  },
+  {
+    "id": "anycast-routing",
+    "category": "Networking",
+    "front": "What is Anycast routing?",
+    "back": "A routing technique where traffic is directed to the nearest instance sharing the same IP address.",
+    "difficulty": "Hard",
+    "tags": ["routing", "cdn"]
+  }
+]

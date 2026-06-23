@@ -1,0 +1,202 @@
+[
+    {
+    "id": "replication-definition",
+    "category": "Replication & Consistency",
+    "front": "What is replication?",
+    "back": "The process of maintaining copies of data across multiple machines.",
+    "difficulty": "Easy",
+    "tags": ["replication", "distributed-systems"]
+  },
+  {
+    "id": "leader-follower-replication",
+    "category": "Replication & Consistency",
+    "front": "How does leader-follower replication work?",
+    "back": "Writes go to a leader node which propagates changes to follower replicas.",
+    "difficulty": "Easy",
+    "tags": ["replication", "leader-follower"]
+  },
+  {
+    "id": "multi-leader-replication",
+    "category": "Replication & Consistency",
+    "front": "What is multi-leader replication?",
+    "back": "A replication model where multiple nodes can accept writes and synchronize changes.",
+    "difficulty": "Medium",
+    "tags": ["replication", "distributed-systems"]
+  },
+  {
+    "id": "leaderless-replication",
+    "category": "Replication & Consistency",
+    "front": "What is leaderless replication?",
+    "back": "A model where clients can write to multiple replicas without a designated leader.",
+    "difficulty": "Medium",
+    "tags": ["replication", "dynamo"]
+  },
+  {
+    "id": "synchronous-replication",
+    "category": "Replication & Consistency",
+    "front": "What is synchronous replication?",
+    "back": "The leader waits for replicas to acknowledge writes before confirming success.",
+    "difficulty": "Medium",
+    "tags": ["replication", "consistency"]
+  },
+  {
+    "id": "asynchronous-replication",
+    "category": "Replication & Consistency",
+    "front": "What is asynchronous replication?",
+    "back": "The leader acknowledges writes before replicas have fully applied them.",
+    "difficulty": "Easy",
+    "tags": ["replication", "latency"]
+  },
+  {
+    "id": "replication-lag",
+    "category": "Replication & Consistency",
+    "front": "What is replication lag?",
+    "back": "The delay between a write occurring on the primary and appearing on replicas.",
+    "difficulty": "Easy",
+    "tags": ["replication", "latency"]
+  },
+  {
+    "id": "strong-consistency-model",
+    "category": "Replication & Consistency",
+    "front": "What does strong consistency guarantee?",
+    "back": "All clients observe the latest successful write immediately.",
+    "difficulty": "Easy",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "eventual-consistency-model",
+    "category": "Replication & Consistency",
+    "front": "What does eventual consistency guarantee?",
+    "back": "If no new updates occur, all replicas eventually converge to the same value.",
+    "difficulty": "Easy",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "causal-consistency",
+    "category": "Replication & Consistency",
+    "front": "What is causal consistency?",
+    "back": "Operations that are causally related are observed in the same order by all clients.",
+    "difficulty": "Hard",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "read-after-write-consistency",
+    "category": "Replication & Consistency",
+    "front": "What is read-after-write consistency?",
+    "back": "A client is guaranteed to see its own writes in subsequent reads.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "user-experience"]
+  },
+  {
+    "id": "monotonic-reads",
+    "category": "Replication & Consistency",
+    "front": "What are monotonic reads?",
+    "back": "A client never sees older data after having observed newer data.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "reads"]
+  },
+  {
+    "id": "monotonic-writes",
+    "category": "Replication & Consistency",
+    "front": "What are monotonic writes?",
+    "back": "A system guarantees writes from the same client are applied in order.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "writes"]
+  },
+  {
+    "id": "quorum-read",
+    "category": "Replication & Consistency",
+    "front": "What is a quorum read?",
+    "back": "A read operation that gathers responses from a minimum number of replicas before returning data.",
+    "difficulty": "Medium",
+    "tags": ["quorum", "replication"]
+  },
+  {
+    "id": "quorum-write",
+    "category": "Replication & Consistency",
+    "front": "What is a quorum write?",
+    "back": "A write operation that must be acknowledged by a minimum number of replicas before succeeding.",
+    "difficulty": "Medium",
+    "tags": ["quorum", "replication"]
+  },
+  {
+    "id": "read-repair",
+    "category": "Replication & Consistency",
+    "front": "What is read repair?",
+    "back": "A technique where stale replicas are updated during read operations.",
+    "difficulty": "Hard",
+    "tags": ["replication", "consistency"]
+  },
+  {
+    "id": "anti-entropy",
+    "category": "Replication & Consistency",
+    "front": "What is anti-entropy?",
+    "back": "A background synchronization process that reconciles divergent replicas.",
+    "difficulty": "Hard",
+    "tags": ["replication", "reconciliation"]
+  },
+  {
+    "id": "split-brain",
+    "category": "Replication & Consistency",
+    "front": "What is a split-brain scenario?",
+    "back": "A failure condition where multiple nodes incorrectly believe they are the leader.",
+    "difficulty": "Hard",
+    "tags": ["replication", "distributed-systems"]
+  },
+  {
+    "id": "conflict-resolution",
+    "category": "Replication & Consistency",
+    "front": "Why is conflict resolution necessary in multi-leader systems?",
+    "back": "Concurrent updates may produce conflicting versions of the same data.",
+    "difficulty": "Medium",
+    "tags": ["replication", "conflicts"]
+  },
+  {
+    "id": "last-write-wins",
+    "category": "Replication & Consistency",
+    "front": "What is Last-Write-Wins conflict resolution?",
+    "back": "The version with the most recent timestamp overwrites competing updates.",
+    "difficulty": "Medium",
+    "tags": ["conflict-resolution", "replication"]
+  },
+  {
+    "id": "vector-clocks",
+    "category": "Replication & Consistency",
+    "front": "What are vector clocks used for?",
+    "back": "Tracking causality and detecting conflicting updates in distributed systems.",
+    "difficulty": "Hard",
+    "tags": ["vector-clocks", "distributed-systems"]
+  },
+  {
+    "id": "version-vector",
+    "category": "Replication & Consistency",
+    "front": "What is a version vector?",
+    "back": "A data structure used to track updates from multiple replicas over time.",
+    "difficulty": "Hard",
+    "tags": ["replication", "versioning"]
+  },
+  {
+    "id": "consistent-prefix-reads",
+    "category": "Replication & Consistency",
+    "front": "What are consistent prefix reads?",
+    "back": "A guarantee that clients observe writes in a valid order without seeing future writes first.",
+    "difficulty": "Hard",
+    "tags": ["consistency", "ordering"]
+  },
+  {
+    "id": "linearizability",
+    "category": "Replication & Consistency",
+    "front": "What is linearizability?",
+    "back": "A strong consistency model where operations appear to occur atomically in real time order.",
+    "difficulty": "Hard",
+    "tags": ["consistency", "distributed-systems"]
+  },
+  {
+    "id": "session-consistency",
+    "category": "Replication & Consistency",
+    "front": "What is session consistency?",
+    "back": "A client experiences a consistent view of data throughout a session.",
+    "difficulty": "Medium",
+    "tags": ["consistency", "sessions"]
+  }
+]

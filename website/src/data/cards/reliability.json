@@ -1,0 +1,202 @@
+[
+    {
+    "id": "fault-tolerance-definition",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is fault tolerance?",
+    "back": "The ability of a system to continue operating despite component failures.",
+    "difficulty": "Easy",
+    "tags": ["reliability", "fault-tolerance"]
+  },
+  {
+    "id": "high-availability",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is high availability?",
+    "back": "Designing systems to minimize downtime and remain accessible during failures.",
+    "difficulty": "Easy",
+    "tags": ["availability", "reliability"]
+  },
+  {
+    "id": "redundancy",
+    "category": "Reliability & Fault Tolerance",
+    "front": "Why is redundancy important?",
+    "back": "Duplicate components reduce the risk of a single failure causing an outage.",
+    "difficulty": "Easy",
+    "tags": ["redundancy", "availability"]
+  },
+  {
+    "id": "failover",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is failover?",
+    "back": "Automatically switching to a backup component when the primary fails.",
+    "difficulty": "Easy",
+    "tags": ["failover", "availability"]
+  },
+  {
+    "id": "graceful-degradation",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is graceful degradation?",
+    "back": "Continuing to provide partial functionality when some components fail.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "user-experience"]
+  },
+  {
+    "id": "failure-domain",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a failure domain?",
+    "back": "A group of components that can fail together due to a shared dependency.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "infrastructure"]
+  },
+  {
+    "id": "blast-radius",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is blast radius?",
+    "back": "The scope of impact caused by a failure or incident.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "operations"]
+  },
+  {
+    "id": "mean-time-between-failures",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is MTBF?",
+    "back": "Mean Time Between Failures measures average operating time between failures.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "metrics"]
+  },
+  {
+    "id": "mean-time-to-recovery",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is MTTR?",
+    "back": "Mean Time To Recovery measures how long it takes to restore service after a failure.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "metrics"]
+  },
+  {
+    "id": "cascading-failure",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a cascading failure?",
+    "back": "A failure that spreads from one component to others, causing a broader outage.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "distributed-systems"]
+  },
+  {
+    "id": "failure-detection",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is failure detection?",
+    "back": "The process of identifying unhealthy or unavailable components in a distributed system.",
+    "difficulty": "Easy",
+    "tags": ["reliability", "monitoring"]
+  },
+  {
+    "id": "heartbeat-mechanism",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a heartbeat?",
+    "back": "A periodic signal used to indicate that a service or node is still alive.",
+    "difficulty": "Easy",
+    "tags": ["failure-detection", "distributed-systems"]
+  },
+  {
+    "id": "health-endpoint",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a health endpoint?",
+    "back": "An API endpoint that reports whether a service is healthy and able to process requests.",
+    "difficulty": "Easy",
+    "tags": ["health-checks", "operations"]
+  },
+  {
+    "id": "active-active-architecture",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is an active-active architecture?",
+    "back": "A deployment model where multiple instances simultaneously serve production traffic.",
+    "difficulty": "Medium",
+    "tags": ["availability", "multi-region"]
+  },
+  {
+    "id": "active-passive-architecture",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is an active-passive architecture?",
+    "back": "A deployment model where standby systems take over only after the active system fails.",
+    "difficulty": "Medium",
+    "tags": ["failover", "availability"]
+  },
+  {
+    "id": "chaos-engineering",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is chaos engineering?",
+    "back": "The practice of intentionally introducing failures to test system resilience.",
+    "difficulty": "Medium",
+    "tags": ["chaos-engineering", "reliability"]
+  },
+  {
+    "id": "disaster-recovery",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is disaster recovery?",
+    "back": "Processes and infrastructure used to restore systems after catastrophic failures.",
+    "difficulty": "Easy",
+    "tags": ["disaster-recovery", "operations"]
+  },
+  {
+    "id": "recovery-point-objective",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is Recovery Point Objective (RPO)?",
+    "back": "The maximum acceptable amount of data loss measured in time.",
+    "difficulty": "Medium",
+    "tags": ["rpo", "disaster-recovery"]
+  },
+  {
+    "id": "recovery-time-objective",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is Recovery Time Objective (RTO)?",
+    "back": "The maximum acceptable amount of time a service can remain unavailable.",
+    "difficulty": "Medium",
+    "tags": ["rto", "disaster-recovery"]
+  },
+  {
+    "id": "checkpointing",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is checkpointing?",
+    "back": "Periodically saving application state so it can be restored after a failure.",
+    "difficulty": "Medium",
+    "tags": ["recovery", "fault-tolerance"]
+  },
+  {
+    "id": "retry-storm",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a retry storm?",
+    "back": "A situation where excessive retries amplify system load and worsen failures.",
+    "difficulty": "Hard",
+    "tags": ["reliability", "distributed-systems"]
+  },
+  {
+    "id": "brownout",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a brownout in system reliability?",
+    "back": "A partial service degradation where functionality remains available but performance is reduced.",
+    "difficulty": "Hard",
+    "tags": ["availability", "operations"]
+  },
+  {
+    "id": "fencing-token",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a fencing token?",
+    "back": "A monotonically increasing token used to prevent stale nodes from performing operations after failover.",
+    "difficulty": "Hard",
+    "tags": ["distributed-systems", "reliability"]
+  },
+  {
+    "id": "byzantine-failure",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is a Byzantine failure?",
+    "back": "A failure where a node behaves arbitrarily or maliciously rather than simply crashing.",
+    "difficulty": "Hard",
+    "tags": ["distributed-systems", "fault-tolerance"]
+  },
+  {
+    "id": "error-budget",
+    "category": "Reliability & Fault Tolerance",
+    "front": "What is an error budget?",
+    "back": "The amount of unreliability a service can tolerate while still meeting its SLO.",
+    "difficulty": "Medium",
+    "tags": ["sre", "reliability"]
+  }
+]

@@ -1,0 +1,122 @@
+[
+    {
+    "id": "authentication-definition",
+    "category": "Security",
+    "front": "What is authentication?",
+    "back": "The process of verifying the identity of a user or system.",
+    "difficulty": "Easy",
+    "tags": ["security", "authentication"]
+  },
+  {
+    "id": "authorization-definition",
+    "category": "Security",
+    "front": "What is authorization?",
+    "back": "The process of determining what actions an authenticated user is allowed to perform.",
+    "difficulty": "Easy",
+    "tags": ["security", "authorization"]
+  },
+  {
+    "id": "authentication-vs-authorization",
+    "category": "Security",
+    "front": "What is the difference between authentication and authorization?",
+    "back": "Authentication verifies identity, while authorization determines permissions.",
+    "difficulty": "Easy",
+    "tags": ["security", "auth"]
+  },
+  {
+    "id": "oauth-overview",
+    "category": "Security",
+    "front": "What is OAuth?",
+    "back": "An authorization framework that allows applications to access resources on behalf of users.",
+    "difficulty": "Medium",
+    "tags": ["oauth", "security"]
+  },
+  {
+    "id": "jwt-overview",
+    "category": "Security",
+    "front": "What is a JWT?",
+    "back": "A JSON Web Token used to securely transmit claims between parties.",
+    "difficulty": "Easy",
+    "tags": ["jwt", "authentication"]
+  },
+  {
+    "id": "session-based-authentication",
+    "category": "Security",
+    "front": "What is session-based authentication?",
+    "back": "An authentication model where server-side sessions track logged-in users.",
+    "difficulty": "Easy",
+    "tags": ["sessions", "authentication"]
+  },
+  {
+    "id": "token-based-authentication",
+    "category": "Security",
+    "front": "What is token-based authentication?",
+    "back": "An authentication model where clients present signed tokens instead of session identifiers.",
+    "difficulty": "Easy",
+    "tags": ["tokens", "authentication"]
+  },
+  {
+    "id": "password-hashing",
+    "category": "Security",
+    "front": "Why should passwords be hashed instead of encrypted?",
+    "back": "Hashing is one-way, reducing the risk of recovering passwords if a database is compromised.",
+    "difficulty": "Medium",
+    "tags": ["passwords", "security"]
+  },
+  {
+    "id": "salted-passwords",
+    "category": "Security",
+    "front": "What is a salt in password hashing?",
+    "back": "Random data added before hashing to prevent rainbow table attacks.",
+    "difficulty": "Medium",
+    "tags": ["passwords", "security"]
+  },
+  {
+    "id": "rate-limiting-security",
+    "category": "Security",
+    "front": "How does rate limiting improve security?",
+    "back": "It helps mitigate abuse, brute-force attacks, and denial-of-service attempts.",
+    "difficulty": "Easy",
+    "tags": ["security", "rate-limiting"]
+  },
+  {
+    "id": "principle-of-least-privilege",
+    "category": "Security",
+    "front": "What is the Principle of Least Privilege?",
+    "back": "Users and services should receive only the permissions necessary to perform their tasks.",
+    "difficulty": "Medium",
+    "tags": ["security", "authorization"]
+  },
+  {
+    "id": "encryption-at-rest",
+    "category": "Security",
+    "front": "What is encryption at rest?",
+    "back": "Protecting stored data by encrypting it on disks or persistent storage.",
+    "difficulty": "Easy",
+    "tags": ["encryption", "security"]
+  },
+  {
+    "id": "encryption-in-transit",
+    "category": "Security",
+    "front": "What is encryption in transit?",
+    "back": "Protecting data while it travels across networks using protocols such as TLS.",
+    "difficulty": "Easy",
+    "tags": ["encryption", "security"]
+  },
+  {
+    "id": "api-key-security",
+    "category": "Security",
+    "front": "Why should API keys be protected?",
+    "back": "Compromised API keys may grant unauthorized access to services and data.",
+    "difficulty": "Medium",
+    "tags": ["api", "security"]
+  },
+  {
+    "id": "zero-trust-security",
+    "category": "Security",
+    "front": "What is Zero Trust security?",
+    "back": "A security model that assumes no user or system is inherently trusted and continuously verifies access.",
+    "difficulty": "Hard",
+    "tags": ["security", "zero-trust"]
+  }
+]

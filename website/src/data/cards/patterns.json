@@ -1,0 +1,162 @@
+[
+    {
+    "id": "client-server-pattern",
+    "category": "Design Patterns",
+    "front": "What is the client-server architecture pattern?",
+    "back": "Clients send requests to centralized servers that process them and return responses.",
+    "difficulty": "Easy",
+    "tags": ["patterns", "architecture"]
+  },
+  {
+    "id": "layered-architecture",
+    "category": "Design Patterns",
+    "front": "What is layered architecture?",
+    "back": "An architecture that separates concerns into layers such as presentation, business logic, and data access.",
+    "difficulty": "Easy",
+    "tags": ["patterns", "architecture"]
+  },
+  {
+    "id": "proxy-pattern",
+    "category": "Design Patterns",
+    "front": "What is the proxy pattern?",
+    "back": "A component that sits between clients and services to add functionality such as caching, authentication, or logging.",
+    "difficulty": "Easy",
+    "tags": ["proxy", "patterns"]
+  },
+  {
+    "id": "sidecar-pattern",
+    "category": "Design Patterns",
+    "front": "What is the sidecar pattern?",
+    "back": "A helper service deployed alongside an application to provide supporting capabilities such as monitoring or networking.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "patterns"]
+  },
+  {
+    "id": "api-gateway-pattern",
+    "category": "Design Patterns",
+    "front": "What is an API gateway?",
+    "back": "A centralized entry point that handles routing, authentication, rate limiting, and request aggregation.",
+    "difficulty": "Easy",
+    "tags": ["api", "patterns"]
+  },
+  {
+    "id": "circuit-breaker-pattern",
+    "category": "Design Patterns",
+    "front": "What problem does the circuit breaker pattern solve?",
+    "back": "It prevents cascading failures by stopping requests to an unhealthy dependency.",
+    "difficulty": "Medium",
+    "tags": ["reliability", "patterns"]
+  },
+  {
+    "id": "bulkhead-pattern",
+    "category": "Design Patterns",
+    "front": "What is the bulkhead pattern?",
+    "back": "A resilience pattern that isolates resources so failures in one area do not affect others.",
+    "difficulty": "Medium",
+    "tags": ["fault-tolerance", "patterns"]
+  },
+  {
+    "id": "retry-pattern",
+    "category": "Design Patterns",
+    "front": "When should the retry pattern be used?",
+    "back": "For transient failures that may succeed if attempted again after a delay.",
+    "difficulty": "Easy",
+    "tags": ["reliability", "patterns"]
+  },
+  {
+    "id": "exponential-backoff",
+    "category": "Design Patterns",
+    "front": "Why is exponential backoff used with retries?",
+    "back": "It reduces pressure on struggling services by increasing wait times between retry attempts.",
+    "difficulty": "Medium",
+    "tags": ["retries", "patterns"]
+  },
+  {
+    "id": "publish-subscribe-pattern",
+    "category": "Design Patterns",
+    "front": "What is the publish-subscribe pattern?",
+    "back": "Publishers send messages to a topic and subscribers receive messages without direct coupling.",
+    "difficulty": "Easy",
+    "tags": ["messaging", "patterns"]
+  },
+  {
+    "id": "event-driven-architecture",
+    "category": "Design Patterns",
+    "front": "What is event-driven architecture?",
+    "back": "A system design where components communicate through events rather than direct requests.",
+    "difficulty": "Medium",
+    "tags": ["events", "patterns"]
+  },
+  {
+    "id": "cqrs-pattern",
+    "category": "Design Patterns",
+    "front": "What is CQRS?",
+    "back": "Command Query Responsibility Segregation separates read operations from write operations.",
+    "difficulty": "Hard",
+    "tags": ["cqrs", "patterns"]
+  },
+  {
+    "id": "saga-pattern",
+    "category": "Design Patterns",
+    "front": "What is the Saga pattern?",
+    "back": "A way to manage distributed transactions using a sequence of local transactions and compensating actions.",
+    "difficulty": "Hard",
+    "tags": ["distributed-transactions", "patterns"]
+  },
+  {
+    "id": "strangler-fig-pattern",
+    "category": "Design Patterns",
+    "front": "What is the Strangler Fig pattern?",
+    "back": "A migration strategy that gradually replaces parts of a legacy system with new services.",
+    "difficulty": "Medium",
+    "tags": ["migration", "patterns"]
+  },
+  {
+    "id": "database-per-service",
+    "category": "Design Patterns",
+    "front": "Why use the database-per-service pattern?",
+    "back": "It improves service autonomy and reduces coupling between microservices.",
+    "difficulty": "Medium",
+    "tags": ["microservices", "patterns"]
+  },
+  {
+    "id": "backend-for-frontend",
+    "category": "Design Patterns",
+    "front": "What is the Backend-for-Frontend (BFF) pattern?",
+    "back": "A dedicated backend tailored to the needs of a specific client application such as web or mobile.",
+    "difficulty": "Medium",
+    "tags": ["bff", "patterns"]
+  },
+  {
+    "id": "shared-nothing-architecture",
+    "category": "Design Patterns",
+    "front": "What is a shared-nothing architecture?",
+    "back": "An architecture where nodes do not share memory or storage, improving scalability and fault isolation.",
+    "difficulty": "Medium",
+    "tags": ["scaling", "patterns"]
+  },
+  {
+    "id": "leader-follower-pattern",
+    "category": "Design Patterns",
+    "front": "What is the leader-follower pattern?",
+    "back": "One node handles writes and coordination while followers replicate data and often serve reads.",
+    "difficulty": "Easy",
+    "tags": ["replication", "patterns"]
+  },
+  {
+    "id": "cache-aside-pattern",
+    "category": "Design Patterns",
+    "front": "What is the cache-aside pattern?",
+    "back": "The application reads from cache first and loads data from the database on a cache miss.",
+    "difficulty": "Easy",
+    "tags": ["cache", "patterns"]
+  },
+  {
+    "id": "write-through-cache-pattern",
+    "category": "Design Patterns",
+    "front": "What is the write-through caching pattern?",
+    "back": "Writes are sent to the cache and database simultaneously, keeping them synchronized.",
+    "difficulty": "Medium",
+    "tags": ["cache", "patterns"]
+  }
+]
