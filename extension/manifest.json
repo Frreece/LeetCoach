@@ -5,15 +5,11 @@
   "description": "AI-powered LeetCode companion with spaced repetition",
   "permissions": [
     "storage",
-    "identity",
-    "scripting",
-    "activeTab",
     "tabs"
   ],
   "host_permissions": [
     "https://leetcode.com/*",
-    "https://*.amazonaws.com/*",
-    "https://*.execute-api.*.amazonaws.com/*"
+    "https://63zt7jiyia.execute-api.us-east-1.amazonaws.com/prod/"
   ],
   "background": {
     "service_worker": "background.js",
