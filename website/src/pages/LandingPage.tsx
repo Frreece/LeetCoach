@@ -10,11 +10,23 @@ const features = [
 ];
 
 const steps = [
-  "Install the Chrome extension",
-  "Create your free LeetCoach account",
-  "Solve any LeetCode problem as usual",
-  "Get instant AI analysis + follow-up questions",
-  "Complete your spaced repetition reviews on schedule",
+  {
+    text: "Install the Chrome extension",
+    href: "https://chromewebstore.google.com/detail/bebajlkfgjannhichmndmeeeihiokmnh?utm_source=item-share-cb",
+    external: true,
+  },
+  {
+    text: "Create your free LeetCoach account",
+  },
+  {
+    text: "Solve any LeetCode problem as usual",
+  },
+  {
+    text: "Get instant AI analysis + follow-up questions",
+  },
+  {
+    text: "Complete your spaced repetition reviews on schedule",
+  },
 ];
 
 export default function LandingPage() {
@@ -117,12 +129,24 @@ export default function LandingPage() {
       <section className="max-w-lg mx-auto px-6 py-20 border-t border-slate-800">
         <h2 className="text-3xl font-bold text-center mb-10">How it works</h2>
         <div className="space-y-4">
-          {steps.map((text, i) => (
+          {steps.map((step, i) => (
             <div key={i} className="flex items-center gap-4">
               <div className="w-8 h-8 rounded-full bg-brand-600/15 border border-brand-600/30 flex items-center justify-center text-brand-400 font-bold text-sm shrink-0">
                 {i + 1}
               </div>
-              <span className="text-slate-300">{text}</span>
+
+              {step.href ? (
+                <a
+                  href={step.href}
+                  target={step.external ? "_blank" : undefined}
+                  rel={step.external ? "noopener noreferrer" : undefined}
+                  className="text-brand-400 hover:text-brand-300 underline underline-offset-2"
+                >
+                  {step.text}
+                </a>
+              ) : (
+                <span className="text-slate-300">{step.text}</span>
+              )}
             </div>
           ))}
         </div>

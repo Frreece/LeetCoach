@@ -1,12 +1,13 @@
 // src/components/Layout.tsx
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { LayoutDashboard, Clock, History, LogOut, Zap } from "lucide-react";
+import { LayoutDashboard, Clock, History, LogOut, Zap, CircleHelp } from "lucide-react";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/review",    label: "Review Queue", icon: Clock },
   { to: "/history",   label: "History", icon: History },
+  { to: "/FAQ", label: "FAQ", icon: CircleHelp }
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {

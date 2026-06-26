@@ -70,7 +70,7 @@ export default function AuthPage({ mode: initialMode }: { mode: Mode }) {
           <h1 className="text-xl font-bold mb-1">
             {mode === "signin" && "Welcome back"}
             {mode === "signup" && "Create your account"}
-            {mode === "confirm" && "Check your email"}
+            {mode === "confirm" && "Check your email or spam folder"}
           </h1>
           <p className="text-slate-400 text-sm mb-6">
             {mode === "signin" && "Sign in to access your dashboard and review queue."}
