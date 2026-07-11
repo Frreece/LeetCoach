@@ -153,11 +153,28 @@ const saveSubmissionFn = new lambda.Function(this, "SaveSubmission", {
   description: "Saves submission and updates SRS record without AI analysis",
 });
 
+const flashcardsSDFn = new lambda.Function(this, "FlashcardsSD", {
+  ...lambdaDefaults,
+  functionName: "leetcoach-flashcards-sd",
+  code: lambda.Code.fromAsset(path.join(__dirname, "../../backend"), {
+    bundling: {
+      image: lambda.Runtime.NODEJS_22_X.bundlingImage,
+      command: [
+        "bash", "-c",
+        "cp -r /asset-input/. /asset-output/ && npm ci --prefix /asset-output --cache /tmp/npm-cache",
+      ],
+    },
+  }),
+  handler: "lambdas/flashcards-sd/index.handler",
+  description: "System Design flashcard SRS management",
+});
+
     // Grant DynamoDB access
     table.grantReadWriteData(analyzeSubmissionFn);
     table.grantReadWriteData(submissionsFn);
     table.grantReadWriteData(reviewQueueFn);
     table.grantReadWriteData(saveSubmissionFn);
+    table.grantReadWriteData(flashcardsSDFn);
 
     // ── API Gateway ───────────────────────────────────────────────────────
     const api = new apigateway.RestApi(this, "LeetCoachApi", {
@@ -202,6 +219,17 @@ const saveSubmissionFn = new lambda.Function(this, "SaveSubmission", {
 
     const submitReview = reviews.addResource("submit");
     submitReview.addMethod("POST", new apigateway.LambdaIntegration(reviewQueueFn), authOptions);
+
+    const flashcards = api.root.addResource("flashcards");
+    const flashcardsSrs = flashcards.addResource("srs");
+    flashcardsSrs.addMethod("GET", new apigateway.LambdaIntegration(flashcardsSDFn), authOptions);
+
+    const flashcardsQueue = flashcards.addResource("queue");
+    flashcardsQueue.addMethod("POST", new apigateway.LambdaIntegration(flashcardsSDFn), authOptions);
+
+    const flashcardsReview = flashcards.addResource("review");
+    flashcardsReview.addMethod("GET", new apigateway.LambdaIntegration(flashcardsSDFn), authOptions);
+    flashcardsReview.addMethod("POST", new apigateway.LambdaIntegration(flashcardsSDFn), authOptions);
 
     // ── SSM Parameters (for CI/CD) ────────────────────────────────────────
     new ssm.StringParameter(this, "ApiUrlParam", {

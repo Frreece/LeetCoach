@@ -29,6 +29,16 @@ export const api = {
       method: "POST",
       body: JSON.stringify({ problemSlug, quality }),
     }),
+  getFlashcardsSrs: () => request<{items: SrsItemSD[] }>("/flashcards/srs"),
+  addToQueue: (cardId: string) => request<{message: string}>("/flashcards/queue", {
+    method: "POST",
+    body: JSON.stringify({cardId}),
+  }),
+  getFlashcardsReview: () => request<{ items: SrsItemSD[]}>("/flashcards/review"),
+  submitFlashcardReview: (cardId : string, quality: number) => request<{srsData: SrsItemSD, message: string}>("/flashcards/review", {
+    method: "POST",
+    body:JSON.stringify({cardId, quality})
+  })
 };
 
 export interface Submission {
@@ -68,4 +78,16 @@ export interface SubmissionsResponse {
 export interface ReviewQueueResponse {
   items: SrsItem[];
   count: number;
+}
+
+export interface SrsItemSD {
+  cardId: string;
+  nextReview: string;
+  interval: number;
+  easeFactor: number;
+  repetitions: number;
+  difficulty?: string;
+  topics?: string[];
+  lastQuality?: number;
+  lastReviewedAt?: string;
 }

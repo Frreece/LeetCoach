@@ -224,3 +224,85 @@ export async function computeStats(userId) {
     topicBreakdown: topicMap,
   };
 }
+
+// ─── Beginning of System Design Section ──────────────
+// ─── System Design Helpers ──────────────
+// ─── Key patterns ──────────────────────────────────────────────────────────
+// SRS record:         PK=USER#<userId>  SK=SRS_SD#<slug>
+// GSI:                GSI1PK=SRS_SD#<userId>  GSI1SK=<nextReview ISO>
+
+export function srsSDSK(cardId) { return `SRS_SD#${cardId}`; }
+
+export async function addCardToQueue(userId, cardId) {
+  const now = new Date().toISOString()
+  await ddb.send(new PutCommand({
+    TableName: TABLE,
+    Item: {
+      PK: userPK(userId),
+      SK: srsSDSK(cardId),
+      GSI1PK: `SRS_SD#${userId}`,
+      easeFactor: 2.5,
+      interval: 0,
+      repetitions: 0,
+      GSI1SK: now,
+      nextReview: now,
+      cardId,
+      userId,
+      updatedAt: now
+    }
+  }));
+}
+
+export async function getSrsSDRecord(userId, cardId) {
+  const res = await ddb.send(new GetCommand( {
+    TableName: TABLE,
+    Key: {PK: userPK(userId), SK: srsSDSK(cardId)}
+  }));
+  return res.Item;
+}
+
+export async function saveSrsSDRecord(userId, cardId, srsData) {
+  await ddb.send(new PutCommand( {
+    TableName: TABLE,
+    Item: {
+      PK: userPK(userId),
+      SK: srsSDSK(cardId),
+      GSI1PK: `SRS_SD#${userId}`,
+      userId,
+      cardId,
+      ...srsData,
+      GSI1SK: srsData.nextReview,
+      updatedAt: new Date().toISOString(),
+    },
+  }))
+}
+
+export async function getAllSrsSDRecords(userId) {
+  const res = await ddb.send(new QueryCommand({
+    TableName: TABLE,
+    KeyConditionExpression: "PK = :pk AND begins_with(SK, :prefix)",
+    ExpressionAttributeValues: {
+      ":pk": userPK(userId),
+      ":prefix": "SRS_SD#",
+    },
+  }));
+  return res.Items || [];
+}
+
+export async function getDueSDCards(userId) {
+  const now = new Date().toISOString();
+  const res = await ddb.send(new QueryCommand( {
+    TableName: TABLE,
+    IndexName: "GSI1",
+    KeyConditionExpression: "GSI1PK = :pk AND GSI1SK <= :now",
+    ExpressionAttributeValues: {
+      ":pk": `SRS_SD#${userId}`,
+      ":now": now
+    },
+    ScanIndexForward: true,
+    Limit: 50
+  }));
+  return res.Items || []
+}
+
+

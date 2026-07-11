@@ -9,6 +9,8 @@ import HistoryPage from "./pages/HistoryPage";
 import Layout from "./components/Layout";
 import PrivacyPage from "./pages/PrivacyPage";
 import FAQ from "./pages/FAQ";
+import FlashcardsPage from "./pages/FlashcardsPage";
+import FlashcardReviewPage from "./pages/FlashcardReviewPage";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
@@ -32,6 +34,8 @@ export default function App() {
       <Route path="/dashboard" element={<ProtectedRoute><Layout><DashboardPage /></Layout></ProtectedRoute>} />
       <Route path="/review"    element={<ProtectedRoute><Layout><ReviewPage /></Layout></ProtectedRoute>} />
       <Route path="/history"   element={<ProtectedRoute><Layout><HistoryPage /></Layout></ProtectedRoute>} />
+      <Route path="/flashcards" element = { <ProtectedRoute> <Layout> <FlashcardsPage/> </Layout> </ProtectedRoute>}/>
+      <Route path = "/flashcards/review" element = { <ProtectedRoute> <Layout> <FlashcardReviewPage/></Layout></ProtectedRoute>}/>
       <Route path = "/FAQ" element = {<Layout> <FAQ/></Layout>} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

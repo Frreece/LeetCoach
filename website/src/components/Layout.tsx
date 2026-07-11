@@ -1,11 +1,13 @@
 // src/components/Layout.tsx
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
-import { LayoutDashboard, Clock, History, LogOut, Zap, CircleHelp } from "lucide-react";
+import { LayoutDashboard, Clock, History, LogOut, Zap, CircleHelp, BookOpen, Brain } from "lucide-react";
 
 const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/review",    label: "Review Queue", icon: Clock },
+  { to: "/flashcards", label: "Flashcards", icon: BookOpen},
+  { to: "/flashcards/review", label: "Flashcard Review", icon: Brain},
   { to: "/history",   label: "History", icon: History },
   { to: "/FAQ", label: "FAQ", icon: CircleHelp }
 ];

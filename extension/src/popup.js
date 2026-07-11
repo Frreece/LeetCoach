@@ -123,7 +123,7 @@ function renderDashboard() {
   document.getElementById("signout-btn").onclick = handleSignOut;
   document.getElementById("open-dashboard").onclick = (e) => {
     e.preventDefault();
-    chrome.tabs.create({ url: "https://leetcoach.app/dashboard" });
+    chrome.tabs.create({ url: "https://leetcoach.org/dashboard" });
   };
 }
 
