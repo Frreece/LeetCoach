@@ -102,12 +102,12 @@ export default function FlashcardsPage() {
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
-          <button onClick={() => setShowFilters(f => !f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 ${
-    showFilters
-      ? "bg-brand-600/30 text-brand-300 border border-brand-600/40"
-      : "text-slate-400 hover:text-slate-200 bg-slate-800/50"
-  }`}>
-            <Filter size={14} className={showFilters ? "text-brand-400" : "text-slate-500"} />
+          <button onClick={() => setShowFilters(f => !f)} className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors flex items-center gap-1.5 $${
+  showFilters
+    ? "bg-slate-600/20 text-slate-300"
+    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+}`}>
+            <Filter size={14} className={showFilters ? "text-slate-500" : "text-slate-400"} />
           </button>
           {DIFFICULTIES.map(d => (
             <button
@@ -115,8 +115,8 @@ export default function FlashcardsPage() {
               onClick={() => handleDiff(d)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 diffFilter === d
-                  ? "bg-brand-600/30 text-brand-300 border border-brand-600/40"
-                  : "text-slate-400 hover:text-slate-200 bg-slate-800/50"
+                  ? "bg-slate-600/20 text-slate-300"
+    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
               }`}
             >
               {d}
@@ -131,8 +131,8 @@ export default function FlashcardsPage() {
               onClick={() => toggleCategory(cat)}
               className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
                 categoryFilter.includes(cat)
-                  ? "bg-brand-600/30 text-brand-300 border border-brand-600/40"
-                  : "text-slate-400 hover:text-slate-200 bg-slate-800/50"
+                  ? "bg-slate-600/20 text-slate-300"
+    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
               }`}
             >
               {cat}
@@ -140,21 +140,7 @@ export default function FlashcardsPage() {
           ))}
         </div>}
 
-        {showFilters && <div className="flex items-center gap-2 flex-wrap">
-          {allTags.map(tag => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-colors ${
-                tagFilter.includes(tag)
-                  ? "bg-brand-600/30 text-brand-300 border border-brand-600/40"
-                  : "text-slate-400 hover:text-slate-200 bg-slate-800/50"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>}
+        
       </div>
 
       {loading && (

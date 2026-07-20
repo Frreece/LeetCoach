@@ -23,6 +23,7 @@ export default function AuthPage({ mode: initialMode }: { mode: Mode }) {
     e.preventDefault();
     setError("");
     setLoading(true);
+    console.log("TESTING")
 
     try {
       if (mode === "signin") {
@@ -46,8 +47,20 @@ export default function AuthPage({ mode: initialMode }: { mode: Mode }) {
         await login(pendingEmail || email, password);
         navigate("/dashboard");
       }
-    } catch (e: any) {
-      setError(e.message || "Something went wrong");
+    } catch (err: any) {
+      console.error("THE CATCH BLOCK IS RUNNING! Name:", err.name, "Message:", err.message);
+      if (mode === "signin" && err.name === "UserNotConfirmedException") {
+        setPendingEmail(email);
+        setMode("confirm");
+        return; 
+      }
+
+      if (mode === "signup" && err.name === "UsernameExistsException") {
+        // Intentionally swallowing this error based on your original code
+        return; 
+      }
+
+      setError(err.message || "Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -59,10 +72,7 @@ export default function AuthPage({ mode: initialMode }: { mode: Mode }) {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center gap-2.5 justify-center">
-            <div className="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center">
-              <Zap size={20} className="text-white" />
-            </div>
-            <span className="font-bold text-2xl">Leet<span className="text-brand-400">Coach</span></span>
+            <span className="font-bold text-2xl">LeetCoach</span>
           </Link>
         </div>
 

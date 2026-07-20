@@ -103,7 +103,6 @@ export default function FlashcardReviewPage() {
     <div className="max-w-2xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold flex items-center gap-2">
-          <BookOpen size={22} className="text-brand-400" />
           Flashcard Review
         </h1>
         <span className="text-slate-400 text-sm">{idx + 1} / {total}</span>

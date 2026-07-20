@@ -19,12 +19,32 @@ export function useAuth() {
 }, []);
 
   const login = useCallback(async (email: string, password: string) => {
-    const { isSignedIn } = await signIn({ username: email, password });
-    if (isSignedIn) {
-      const u = await getCurrentUser();
-      const session = await fetchAuthSession();
-      localStorage.setItem("lc_id_token", session.tokens?.idToken?.toString() ?? "");
-      setUser({ email, userId: u.userId });
+    console.log("1. Starting login for:", email);
+    
+    try {
+      const response = await signIn({ username: email, password });
+      console.log("2. Amplify signIn response:", response);
+
+      // Check for the unconfirmed user step
+      if (response.nextStep?.signInStep === "CONFIRM_SIGN_UP") {
+        console.log("3. User needs confirmation! Throwing custom error...");
+        const customError = new Error("User is not confirmed");
+        customError.name = "UserNotConfirmedException";
+        throw customError; // This forces the AuthPage catch block to trigger
+      }
+
+      // If fully signed in, set up the session
+      if (response.isSignedIn) {
+        console.log("4. User is fully signed in!");
+        const u = await getCurrentUser();
+        const session = await fetchAuthSession();
+        localStorage.setItem("lc_id_token", session.tokens?.idToken?.toString() ?? "");
+        setUser({ email, userId: u.userId });
+      }
+      
+    } catch (err) {
+      console.log("5. Amplify threw a native error:", err);
+      throw err; // Re-throw the error so AuthPage can catch it!
     }
   }, []);
 

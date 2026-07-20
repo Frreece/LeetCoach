@@ -6,7 +6,9 @@ export default function FAQ() {
         <div className="border-b border-slate-800 px-6 py-6">
             <div className="max-w-4xl mx-auto">
             <h1 className="text-3xl font-bold">
-                Frequently Asked <span className="text-brand-400">Questions</span>
+                <a href="/">
+                Frequently Asked Questions
+                </a>
             </h1>
             </div>
         </div>

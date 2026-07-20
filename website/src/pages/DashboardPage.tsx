@@ -1,7 +1,7 @@
 // src/pages/DashboardPage.tsx
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Flame, CheckCircle, BookOpen, TrendingUp, ExternalLink, ArrowRight } from "lucide-react";
+import { Flame, CheckCircle, BookOpen, TrendingUp, ExternalLink, ArrowRight, XCircle } from "lucide-react";
 import { api, type SubmissionsResponse } from "../lib/api";
 import { RadarChart, PolarGrid, PolarAngleAxis, Radar, ResponsiveContainer, Tooltip } from "recharts";
 import { format } from "date-fns";
@@ -40,20 +40,23 @@ export default function DashboardPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         {reviewCount > 0 && (
-          <Link to="/review" className="flex items-center gap-2 bg-brand-600/20 border border-brand-600/40 text-brand-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-600/30 transition-colors">
-            <BookOpen size={15} />
-            {reviewCount} due for review
-            <ArrowRight size={14} />
-          </Link>
-        )}
+  <Link
+    to="/review"
+    className="flex items-center gap-2 bg-slate-600/20 border border-slate-600/40 text-slate-300 px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-600/30 transition-colors"
+  >
+    <BookOpen size={15} />
+    {reviewCount} due for review
+    <ArrowRight size={14} />
+  </Link>
+)}
       </div>
 
       {/* Stat cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard icon={<CheckCircle size={18} className="text-emerald-400" />} label="Problems Solved" value={data.total} color="text-emerald-400" />
+        <StatCard icon={<CheckCircle size={18} className="text-emerald-400" />} label="Problems Solved" value={data.total} color = "text-emerald-400" />
+        <StatCard icon={<BookOpen size={18} />} label="Due for Review" value={reviewCount} />
+        <StatCard icon={<TrendingUp size={18} />} label="Topics Covered" value={Object.keys(data.topicBreakdown || {}).length} />
         <StatCard icon={<Flame size={18} className="text-orange-400" />} label="Day Streak" value={data.currentStreak} color="text-orange-400" />
-        <StatCard icon={<BookOpen size={18} className="text-brand-400" />} label="Due for Review" value={reviewCount} color="text-brand-400" />
-        <StatCard icon={<TrendingUp size={18} className="text-cyan-400" />} label="Topics Covered" value={Object.keys(data.topicBreakdown || {}).length} color="text-cyan-400" />
       </div>
 
       <div className="grid lg:grid-cols-2 gap-6">
@@ -65,7 +68,7 @@ export default function DashboardPage() {
               <RadarChart data={topicData}>
                 <PolarGrid stroke="#1e293b" />
                 <PolarAngleAxis dataKey="topic" tick={{ fontSize: 11, fill: "#64748b" }} />
-                <Radar name="Acceptance Rate" dataKey="rate" stroke="#7c3aed" fill="#7c3aed" fillOpacity={0.25} />
+                <Radar name="Acceptance Rate" dataKey="rate" stroke="#ffffffff" fill="#ffffffff" fillOpacity={0.25} />
                 <Tooltip
                   contentStyle={{ background: "#0f172a", border: "1px solid #1e293b", borderRadius: 8, fontSize: 12 }}
                   formatter={(v: number) => [`${v}%`, "Acceptance"]}
@@ -79,7 +82,7 @@ export default function DashboardPage() {
         <div className="card">
           <div className="flex items-center justify-between mb-4">
             <h2 className="font-semibold text-sm uppercase tracking-wide text-slate-400">Recent Submissions</h2>
-            <Link to="/history" className="text-xs text-brand-400 hover:underline flex items-center gap-1">
+            <Link to="/history" className="text-xs hover:underline flex items-center gap-1">
               View all <ArrowRight size={11} />
             </Link>
           </div>
@@ -89,23 +92,23 @@ export default function DashboardPage() {
             )}
             {data.recentSubmissions.slice(0, 7).map((sub, i) => (
               <div key={i} className="flex items-center justify-between gap-3 py-2 border-b border-slate-800 last:border-0">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${sub.accepted ? "bg-emerald-400" : "bg-red-400"}`} />
-                  <a
-                    href={`https://leetcode.com/problems/${sub.problemSlug}/`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-slate-200 hover:text-brand-300 truncate flex items-center gap-1"
-                  >
-                    {formatSlug(sub.problemSlug)}
-                    <ExternalLink size={11} className="flex-shrink-0 opacity-40" />
-                  </a>
-                </div>
-                <div className="flex items-center gap-2 flex-shrink-0">
-                  <DiffBadge diff={sub.difficulty} />
-                  <span className="text-xs text-slate-500">{format(new Date(sub.timestamp), "MMM d")}</span>
-                </div>
-              </div>
+  <div className="flex items-center gap-2.5 min-w-0">
+    {sub.accepted ? (
+      <CheckCircle size={14} className="text-emerald-400 flex-shrink-0" />
+    ) : (
+      <XCircle size={14} className="text-red-400 flex-shrink-0" />
+    )}
+    <a
+      href={`https://leetcode.com/problems/${sub.problemSlug}/`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm text-slate-200 hover:text-brand-300 truncate flex items-center gap-1"
+    >
+      {formatSlug(sub.problemSlug)}
+      <ExternalLink size={11} className="flex-shrink-0 opacity-40" />
+    </a>
+  </div>
+</div>
             ))}
           </div>
         </div>
@@ -114,10 +117,22 @@ export default function DashboardPage() {
   );
 }
 
-function StatCard({ icon, label, value, color }: { icon: React.ReactNode; label: string; value: number; color: string }) {
+function StatCard({
+  icon,
+  label,
+  value,
+  color = "text-slate-200",
+}: {
+  icon: React.ReactNode;
+  label: string;
+  value: number;
+  color?: string;
+}) {
   return (
     <div className="card flex items-center gap-4">
-      <div className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0">{icon}</div>
+      <div className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center flex-shrink-0">
+        {icon}
+      </div>
       <div>
         <div className={`text-2xl font-bold ${color}`}>{value}</div>
         <div className="text-xs text-slate-500 mt-0.5">{label}</div>

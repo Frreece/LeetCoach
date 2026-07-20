@@ -24,10 +24,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <aside className="w-56 bg-slate-900 border-r border-slate-800 flex flex-col fixed h-full z-10">
         <div className="p-5 border-b border-slate-800">
           <Link to="/dashboard" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg flex items-center justify-center">
               <Zap size={16} className="text-white" />
             </div>
-            <span className="font-bold text-lg">Leet<span className="text-brand-400">Coach</span></span>
+            <span className="font-bold text-lg">LeetCoach</span>
           </Link>
         </div>
 
@@ -37,10 +37,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             return (
               <Link key={to} to={to}
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  active
-                    ? "bg-brand-600/20 text-brand-300"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
-                }`}>
+  active
+    ? "bg-slate-600/20 text-slate-300"
+    : "text-slate-400 hover:text-slate-200 hover:bg-slate-800"
+}`}>
                 <Icon className="w-4 h-4" />
                 {label}
               </Link>
